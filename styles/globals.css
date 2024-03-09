@@ -7,3 +7,15 @@
     --vh: 100%;
   }
 } */
+
+.bottom-tab {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .bottom-tab {
+    display: none; /* Hide on larger screens if necessary */
+  }
+}

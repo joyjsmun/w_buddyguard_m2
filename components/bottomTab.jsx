@@ -18,8 +18,8 @@ const BottomTab = ({ location }) => {
   const router = useRouter();
 
   return (
-    <div className="fixed top-[90vh] w-full">
-      <div className="bg-[#231f20] px-4 py-6 flex flex-around justify-around">
+    <div className="bottom-tab fixed  w-full">
+      <div className=" bg-[#231f20] px-4 py-6 flex flex-around justify-around">
         <div onClick={() => router.push("/home")}>
           {location === "home" ? (
             <Image src={home1} className="w-11 h-11" alt="Home Active" />
