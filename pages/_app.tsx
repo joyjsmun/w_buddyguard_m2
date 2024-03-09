@@ -1,17 +1,13 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import React, {  useEffect } from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/router";
-import Locale from 'next';
 import {
-  ConnectWallet,
   metamaskWallet,
   coinbaseWallet,
   walletConnect,
   localWallet,
   embeddedWallet,
-  rainbowWallet,
-  lightTheme,
   ThirdwebProvider,
 } from "@thirdweb-dev/react";
 import { ArbitrumSepolia } from "@thirdweb-dev/chains";
@@ -38,7 +34,7 @@ export default function App({ Component, pageProps }: AppProps) {
   });
 
   const { locale } = useRouter() as { locale: string };
-  
+
   return (
     <ThirdwebProvider
       authConfig={{
