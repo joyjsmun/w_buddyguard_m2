@@ -10,9 +10,6 @@ import Layout from "@/components/layout";
 import { Hangout1, Hangout4, Hangout5 } from "@/public/assets/images";
 import { ConnectWallet, useSigner } from "@thirdweb-dev/react";
 import { ENV } from "@pushprotocol/restapi/src/lib/constants";
-
-// import { ConnectButton } from "@rainbow-me/rainbowkit";
-// import { useWalletClient } from "wagmi";
 import { PushAPI } from "@pushprotocol/restapi";
 
 const Home = () => {
@@ -25,9 +22,11 @@ const Home = () => {
 
   const signer = useSigner();
 
-  const handleSendMessage = async (signer:any) => {
+  const handleSendMessage = async (signer: any) => {
     // Initialize wallet user, pass 'prod' instead of 'staging' for mainnet apps
-    const userAlice = await PushAPI.initialize(signer, { env: "staging" as ENV });
+    const userAlice = await PushAPI.initialize(signer, {
+      env: "staging" as ENV,
+    });
 
     const messageContent = `Emergency Situation\nSOS User: Vitalik J\nSOS Location Link: 1212st, Barcelona, Spain\nPersonal Contact Number: 987-232-1829`;
 
@@ -37,7 +36,7 @@ const Home = () => {
     });
   };
 
-  const handleSendSOSMessage = async (signer:any) => {
+  const handleSendSOSMessage = async (signer: any) => {
     try {
       await handleSendMessage(signer); // Call handleSendMessage function
       console.log("SOS message sent successfully");
