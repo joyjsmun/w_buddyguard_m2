@@ -29,10 +29,10 @@ const WalkRequestInfo = () => {
             </button>
           </div>
           {/* Card Section */}
-          <div className="bg-[#F2F2F2] p-4 rounded-lg flex flex-col  space-y-6 ">
+          <div className="bg-[#F2F2F2] p-4 rounded-lg flex flex-col  space-y-4 ">
             {/* Choose Buddy */}
             <div className="flex flex-row items-center ml-2 ">
-              <div className="flex flex-col space-y-2 w-full">
+              <div className="flex flex-col space-y-1 w-full">
                 <label htmlFor="address" className="font-robotoBold">
                   Address
                 </label>
@@ -48,8 +48,8 @@ const WalkRequestInfo = () => {
 
             {/* Choose Options */}
             <div className="flex flex-row items-center ml-2">
-              <div className="flex flex-col space-y-2  w-full">
-                <h2 className="font-robotoBold mb-2">Choose Your Buddy</h2>
+              <div className="flex flex-col space-y-1  w-full">
+                <h2 className="font-robotoBold mb-1">Choose Your Buddy</h2>
                 <div className="flex flex-col justify-between ">
                   <button
                     className={` flex items-center justify-start px-4 py-3 border-2 border-[#4F9171] rounded-2xl mb-3 ${
@@ -84,7 +84,7 @@ const WalkRequestInfo = () => {
             {/* Next Button */}
             <button
               onClick={() => router.push("walkConfirm")}
-              className="bg-[#4F9171] px-4 py-3 w-full flex items-center justify-center text-white font-latoBlack text-2xl rounded-lg"
+              className="bg-[#4F9171] px-4 py-2 w-full flex items-center justify-center text-white font-latoBlack text-2xl rounded-lg"
             >
               NEXT
             </button>
