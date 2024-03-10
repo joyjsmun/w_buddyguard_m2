@@ -341,7 +341,7 @@ const WalkStatus = () => {
                     />
                   </button>
                 )}
-                {/* {isCurrentBuddyGuard.length > 0 && (
+                {isCurrentBuddyGuard.length > 0 && (
                   <button className="">
                     <Image
                       className="w-16 h-16 rounded-full relative border-4 border-green-500 p-1"
@@ -349,7 +349,7 @@ const WalkStatus = () => {
                       alt={`Buddy Guard ${isCurrentBuddyGuard[0].id}`}
                     />
                   </button>
-                )} */}
+                )}
               </div>
 
               <p className="font-latoLight">
