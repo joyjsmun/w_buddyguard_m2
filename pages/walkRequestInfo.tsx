@@ -29,7 +29,7 @@ const WalkRequestInfo = () => {
             </button>
           </div>
           {/* Card Section */}
-          <div className="bg-[#F2F2F2] p-4 rounded-lg flex flex-col  space-y-4 ">
+          <div className="bg-[#F2F2F2] p-4 rounded-lg flex flex-col  space-y-3 ">
             {/* Choose Buddy */}
             <div className="flex flex-row items-center ml-2 ">
               <div className="flex flex-col space-y-1 w-full">
