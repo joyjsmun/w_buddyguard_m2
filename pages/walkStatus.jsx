@@ -301,7 +301,7 @@ const WalkStatus = () => {
 
   return (
     <Layout>
-      <div className="bg-white min-h-screen flex flex-col justify-center">
+      <div className="bg-white min-h-screen flex flex-col mt-10">
         <div className="px-4 flex w-full flex-col space-y-2">
           {/* Top Section */}
           <div className="flex flex-col space-y-2">
