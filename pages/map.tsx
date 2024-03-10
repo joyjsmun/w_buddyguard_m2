@@ -18,7 +18,7 @@ const Map = () => {
   const [map, setMap] = useState<google.maps.Map | null>(null);
 
   const onLoad = useCallback(
-    function callback(map) {
+    function callback(map: any) {
       if (currentLocation.lat !== 0 && currentLocation.lng !== 0) {
         map.setCenter(currentLocation);
       }
