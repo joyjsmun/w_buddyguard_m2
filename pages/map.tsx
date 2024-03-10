@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 import {
   GoogleMap,
   Marker,
@@ -41,10 +41,17 @@ const Map = () => {
     width: "100%",
     height: "100vh",
   };
-  const center = {
-    lat: 41.38707262727212,
-    lng: 2.1700450041329127,
-  };
+  // const center = {
+  //   Barcelona
+  //   lat: 41.38707262727212,
+  //   lng: 2.1700450041329127,
+
+  // };
+
+  const [currentLocation, setCurrentLocation] = useState({
+    lat: 0,
+    lng: 0,
+  });
 
   const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAP_KEY || "";
 
@@ -76,13 +83,35 @@ const Map = () => {
     setMap(null);
   }, []);
 
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setCurrentLocation({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          });
+        },
+        () => {
+          console.error("Error getting location");
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
+  };
+
+  useEffect(() => {
+    getLocation();
+  }, []);
+
   return (
     <Layout>
       <div className="mt-12">
         {isLoaded ? (
           <GoogleMap
             mapContainerStyle={containerStyle}
-            center={center}
+            center={currentLocation}
             zoom={13}
             onLoad={onLoad}
             onUnmount={onUnmount}
