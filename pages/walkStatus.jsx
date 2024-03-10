@@ -301,7 +301,7 @@ const WalkStatus = () => {
 
   return (
     <Layout>
-      <div className="bg-white min-h-screen flex flex-col items-center justify-center">
+      <div className="bg-white min-h-screen flex flex-col justify-center">
         <div className="px-4 flex w-full flex-col space-y-2">
           {/* Top Section */}
           <div className="flex flex-col space-y-2">
@@ -461,7 +461,7 @@ const WalkStatus = () => {
             <div className="flex justify-around items-center space-x-3">
               <button
                 onClick={() => setIsSosModal(true)}
-                className="bg-[#FF5757] text-white font-latoBlack py-3 w-full rounded-lg"
+                className="bg-[#FF5757] text-white font-latoBlack py-2 w-full rounded-lg"
               >
                 SEND SOS
               </button>
@@ -472,7 +472,7 @@ const WalkStatus = () => {
 
                   router.push("/home");
                 }}
-                className="bg-[#4F9171] text-white font-latoBlack py-3 w-full rounded-lg"
+                className="bg-[#4F9171] text-white font-latoBlack py-2 w-full rounded-lg"
               >
                 ARRIVED
               </button>
