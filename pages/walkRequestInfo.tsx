@@ -84,7 +84,7 @@ const WalkRequestInfo = () => {
             {/* Next Button */}
             <button
               onClick={() => router.push("walkConfirm")}
-              className="bg-[#4F9171] px-4 py-2 w-full flex items-center justify-center text-white font-latoBlack text-2xl rounded-lg"
+              className="bg-[#4F9171] px-4 py-2 w-full flex items-center justify-center text-white font-latoBlack text-md  rounded-lg"
             >
               NEXT
             </button>
