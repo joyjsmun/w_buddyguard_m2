@@ -82,13 +82,13 @@ const Home = () => {
             <h2 className="text-[#121418] font-robotoBold text-lg">
               Upcoming Events
             </h2>
-            <div className="flex flex-row items-center space-x-2">
-              <div className="flex flex-col w-full space-y-12">
+            <div className="flex flex-row items-center">
+              <div className="flex flex-col justify-center items-center w-full space-y-12">
                 {[Hangout5, Hangout4].map((image, index) => (
                   <button
                     key={index}
                     onClick={() => router.push("/hangout")}
-                    className="w-[95%] h-24"
+                    className="w-[98%] h-24"
                   >
                     <Image
                       src={image}
