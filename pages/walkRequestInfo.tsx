@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import Layout from "@/components/layout";
 //import AutoComplete from '../components/AutoComplete';
+import MapImage from "../public/assets/images/map_example.png";
 
 const WalkRequestInfo = () => {
   const [address, setAddress] = useState("");
@@ -20,10 +21,10 @@ const WalkRequestInfo = () => {
             <h1 className="text-[#121418] font-robotoBold text-lg mb-1">
               Walking Every Stop With You
             </h1>
-            <button>
+            <button onClick={() => router.push("/map")}>
               <Image
-                className="w-full h-40 mb-2 rounded-lg"
-                src={Map}
+                src={MapImage}
+                className="w-full h-40 rounded-lg"
                 alt="Map"
               />
             </button>
