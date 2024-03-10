@@ -24,7 +24,7 @@ const Layout = (props: { children: React.ReactNode }) => {
   const hideBottomTab = pathname === "/" || pathname === "/onBoarding";
 
   return (
-    <div className="mb-10">
+    <div className="mb-6">
       <TopLogo />
       <main>{props.children}</main>
       <BottomTab location={location} />
