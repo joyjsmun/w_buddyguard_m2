@@ -86,12 +86,12 @@ const WalkConfirm = () => {
             </button>
           </div>
           {/* Card Section */}
-          <div className="rounded-lg bg-[#F2F2F2] p-4 flex flex-col space-y-6">
+          <div className="rounded-lg bg-[#F2F2F2] p-1 flex flex-col space-y-2">
             {/* Choose Your Buddy */}
             <div className="flex flex-col space-y-2">
               {/* Choose Options */}
               <button
-                className={`flex items-center space-x-4 border-[#4F9171] border-2 rounded-lg py-2 px-6 ${
+                className={`flex items-center space-x-4 border-[#4F9171] border-2 rounded-lg py-2 px-2 ${
                   selectedOption === "buddyGuard"
                     ? "bg-[#4F9171] text-white"
                     : ""
@@ -107,7 +107,7 @@ const WalkConfirm = () => {
                   <span className="text-md font-robotoMedium text-left">
                     Buddy-Guard(Local)
                   </span>
-                  <div className="flex font-latoLight flex-row space-x-2">
+                  <div className="flex text-sm font-latoLight flex-row space-x-2">
                     <span>Near 200m</span>
                     <span className="font-latoBold text-[#FF5757]">
                       High Reputation
@@ -117,7 +117,7 @@ const WalkConfirm = () => {
               </button>
               {/* Add similar buttons for other options */}
               <button
-                className={`flex items-center space-x-4 border-[#4F9171] border-2 rounded-lg py-2 px-6 ${
+                className={`flex items-center space-x-4 border-[#4F9171] border-2 rounded-lg py-2 px-2 ${
                   selectedOption === "julietK" ? "bg-[#4F9171] text-white" : ""
                 }`}
                 onClick={() => setSelectedOption("julietK")}
@@ -131,8 +131,8 @@ const WalkConfirm = () => {
                   <span className="text-md font-robotoMedium text-left">
                     Juliet K
                   </span>
-                  <div className="flex flex-row space-x-2">
-                    <span className="font-latoLight">Near 200m</span>
+                  <div className="flex text-sm font-latoLight flex-row space-x-2">
+                    <span>Near 200m</span>
                     <span className="font-latoBold text-[#FF5757]">
                       High Reputation
                     </span>
@@ -141,7 +141,7 @@ const WalkConfirm = () => {
               </button>
               {/* Add similar buttons for other options */}
               <button
-                className={`flex items-center space-x-4 border-[#4F9171] border-2 rounded-lg py-2 px-6 ${
+                className={`flex items-center space-x-4 border-[#4F9171] border-2 rounded-lg py-2 px-2 ${
                   selectedOption === "jamesLee" ? "bg-[#4F9171] text-white" : ""
                 }`}
                 onClick={() => setSelectedOption("jamesLee")}
@@ -155,8 +155,8 @@ const WalkConfirm = () => {
                   <span className="text-md font-robotoMedium text-left">
                     James Lee
                   </span>
-                  <div className="flex flex-row space-x-2">
-                    <span className="font-latoLight">Near 200m</span>
+                  <div className="flex text-sm font-latoLight flex-row space-x-2">
+                    <span>Near 200m</span>
                     <span className="font-latoBold text-[#FF5757]">
                       Med Reputation
                     </span>
@@ -181,7 +181,7 @@ const WalkConfirm = () => {
             </div>
             {/* Confirm Button */}
             <button
-              className="bg-[#4F9171] px-4 py-3 w-full flex items-center justify-center text-white font-latoBlack text-2xl rounded-lg"
+              className="bg-[#4F9171] px-4 py-2 w-full text-md flex items-center justify-center text-white font-latoBlack rounded-lg"
               onClick={async () => {
                 await HandleCreateOrder();
               }}
