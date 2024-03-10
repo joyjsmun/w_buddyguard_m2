@@ -71,7 +71,7 @@ const OnBoarding = () => {
   };
 
   return (
-    <div className="bg-[#F6D268] min-h-screen flex flex-col justify-center items-center">
+    <div className="bg-[#F6D268] min-h-screen flex flex-col justify-center items-center pb-4">
       <div className="flex flex-col items-center space-y-2 ">
         <Image
           src={slides[currentSlideIndex].image}
@@ -85,9 +85,9 @@ const OnBoarding = () => {
           {slides[currentSlideIndex].subtitle}
         </p>
       </div>
-      {currentSlideIndex === slides.length - 1 ? <TapNFC/> : ""}
+      {currentSlideIndex === slides.length - 1 ? <TapNFC /> : ""}
 
-      <div className="flex items-center space-x-4 mt-8">
+      <div className="flex items-center space-x-4 mt-4">
         {slides.map((_, index) => (
           <div
             key={index}
@@ -98,8 +98,7 @@ const OnBoarding = () => {
           />
         ))}
       </div>
-      <div>
-      </div>
+      <div></div>
       <div className="flex items-center mt-8">
         <button
           className="bg-blue-500 font-robotoMedium text-white py-2 px-6 rounded-lg mr-4"
@@ -108,17 +107,13 @@ const OnBoarding = () => {
           Skip
         </button>
         <div>
-        <button
-          className="bg-blue-500 font-robotoMedium text-white py-2 px-6 rounded-lg"
-          onClick={goToNextSlide}
-        >
-          {currentSlideIndex === slides.length - 1 ? "Get Started" : "Next"}
-          
-        </button>
+          <button
+            className="bg-blue-500 font-robotoMedium text-white py-2 px-6 rounded-lg"
+            onClick={goToNextSlide}
+          >
+            {currentSlideIndex === slides.length - 1 ? "Get Started" : "Next"}
+          </button>
         </div>
-        
-
-       
       </div>
     </div>
   );
