@@ -63,10 +63,10 @@ const Home = () => {
           </div>
         </div>
         <div
-          className="overflow-y-auto pt-4 px-4 flex flex-col space-y-4"
+          className="overflow-y-auto pt-4 px-4 flex flex-col space-y-2"
           style={{ paddingBottom: "60px" }}
         >
-          <div className="flex flex-col space-y-2">
+          <div className="flex flex-col space-y-1">
             <h2 className="text-[#121418] font-robotoBold text-lg">
               Explore Your Neighborhood
             </h2>
