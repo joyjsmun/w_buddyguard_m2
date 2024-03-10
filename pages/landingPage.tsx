@@ -32,7 +32,7 @@ const LandingPage = () => {
       </div>
       <button
         onClick={handleButtonClick}
-        className=" absolute bottom-60 w-24 h-24 border-r-2 border-l-2 border-t-4 border-orange-500 rounded-full items-center justify-center"
+        className=" fixed bottom-20 w-24 h-24 border-r-2 border-l-2 border-t-4 border-orange-500 rounded-full items-center justify-center"
       >
         <div className="w-20 h-20 flex flex-col ml-[0.4rem] items-center justify-center rounded-full bg-orange-500 animate-pulse">
           <p className="text-white font-latoBold text-xl">GO</p>

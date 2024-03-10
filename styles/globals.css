@@ -8,6 +8,13 @@
   }
 } */
 
+.start-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+}
+
 .bottom-tab {
   position: fixed;
   bottom: 0;
