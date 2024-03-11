@@ -1,5 +1,5 @@
 import React from "react";
-import { nft1, nft2, nft3, nft4 } from "../public/assets/images";
+import { nft1, nft2, nft3, nft4, nft5 } from "../public/assets/images";
 import Image from "next/image";
 
 export default function NFT() {
@@ -21,7 +21,7 @@ export default function NFT() {
               <Image src={nft1} className="w-14 h-14" alt="nft1" />
             </button>
             <button className="rounded-md w-16 h-16 border-2 border-gray-400 flex justify-center items-center">
-              <Image src={nft2} className="w-14 h-14" alt="nft2" />
+              <Image src={nft5} className="w-14 h-14" alt="nft2" />
             </button>
             <button className="rounded-md w-16 h-16 border-2 border-gray-400 flex justify-center items-center">
               <Image src={nft3} className="w-14 h-14" alt="nft3" />

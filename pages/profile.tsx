@@ -23,6 +23,7 @@ import {
   nft2,
   nft3,
   nft4,
+  nft5,
 } from "../public/assets/images";
 
 import Layout from "@/components/layout";
@@ -65,8 +66,8 @@ const Profile = () => {
     groupContractAddress: "",
   });
 
-  const randomPOAPAddress = "0x1234567890123456789012345678901234567890"; // Example POAP contract address
-  const randomNFTAddress = "0x0987654321098765432109876543210987654321"; // Example NFT contract address
+  const randomPOAPAddress = "0x4f8f3D60f99a90F0e15b50C8E238d7E02c48086A"; // Example POAP contract address
+  const randomNFTAddress = "0x4f8f3D60f99a90F0e15b50C8E238d7E02c48086A"; // Example NFT contract address
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -248,7 +249,7 @@ const Profile = () => {
     }
   }, [groupInfo, groupContractAddress]);
 
-  const handleInputChange = useCallback((e:any) => {
+  const handleInputChange = useCallback((e: any) => {
     const { name, value } = e.target;
     setGroupInfo((prevGroupInfo) => ({
       ...prevGroupInfo,
@@ -352,8 +353,8 @@ const Profile = () => {
                 <div className="flex space-x-2">
                   <div className="flex flex-row pl-5 justify-start items-center space-x-5 rounded-lg bg-[#F2F2F2] w-[80%] h-16">
                     <Image src={verified} className="w-11 h-11" alt="Group" />
-                    <p className="font-lato text-base text-gray-900 ">
-                      Your Verification is completed with WaltID
+                    <p className="font-lato  text-gray-900 text-sm ">
+                      Verification is completed with WaltID
                     </p>
                   </div>
                   <button
@@ -517,7 +518,7 @@ const Profile = () => {
                               className="rounded-md w-16 h-16 border-2 border-gray-400 flex justify-center items-center"
                             >
                               <Image
-                                src={nft2}
+                                src={nft5}
                                 className="w-14 h-14"
                                 alt="nft1"
                               />
