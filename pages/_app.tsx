@@ -12,6 +12,8 @@ import {
 } from "@thirdweb-dev/react";
 import { ArbitrumSepolia, Sepolia } from "@thirdweb-dev/chains";
 
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 export const StatusContext = React.createContext({
   statusText: "",
   setStatusText: (newStatus: string) => {},
@@ -35,26 +37,30 @@ export default function App({ Component, pageProps }: AppProps) {
 
   const { locale } = useRouter() as { locale: string };
 
+  const queryClient = new QueryClient();
+
   return (
-    <ThirdwebProvider
-      authConfig={{
-        domain: process.env.NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN || "",
-      }}
-      activeChain={Sepolia}
-      clientId="833996b2d080980da3975eb07563f830"
-      supportedWallets={[
-        metamaskWallet(),
-        coinbaseWallet({ recommended: true }),
-        walletConnect(),
-        localWallet(),
-        embeddedWallet({
-          auth: {
-            options: ["google", "apple"],
-          },
-        }),
-      ]}
-    >
-      <Component {...pageProps} />
-    </ThirdwebProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThirdwebProvider
+        authConfig={{
+          domain: process.env.NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN || "",
+        }}
+        activeChain={Sepolia}
+        clientId="833996b2d080980da3975eb07563f830"
+        supportedWallets={[
+          metamaskWallet(),
+          coinbaseWallet({ recommended: true }),
+          walletConnect(),
+          localWallet(),
+          embeddedWallet({
+            auth: {
+              options: ["google", "apple"],
+            },
+          }),
+        ]}
+      >
+        <Component {...pageProps} />
+      </ThirdwebProvider>
+    </QueryClientProvider>
   );
 }
