@@ -17,6 +17,18 @@ interface UserLocation {
   };
 }
 
+const getUserColor = (userId: string) => {
+  // Define a color mapping based on user IDs
+  const colorMap: Record<string, string> = {
+    user1: "red",
+    user2: "blue",
+    // Add more user-color mappings as needed
+  };
+
+  // Return the color for the given user ID, or a default color if not found
+  return colorMap[userId] || "green";
+};
+
 const { db: firestore } = initializeFirebaseClient();
 
 const Map = () => {
@@ -107,10 +119,25 @@ const Map = () => {
             onLoad={onLoad}
             onUnmount={onUnmount}
           >
-            {/* Optionally, you can add a marker for the user's current location */}
+            {/* Marker for the user's current location */}
             {currentLocation.lat !== 0 && currentLocation.lng !== 0 && (
               <Marker position={currentLocation} />
             )}
+
+            {/* Markers for other users */}
+            {Object.entries(userLocations).map(([userId, { location }]) => (
+              <Marker
+                key={userId}
+                position={{ lat: location.latitude, lng: location.longitude }}
+                icon={{
+                  path: google.maps.SymbolPath.CIRCLE,
+                  scale: 8,
+                  fillColor: getUserColor(userId),
+                  fillOpacity: 1,
+                  strokeWeight: 0,
+                }}
+              />
+            ))}
           </GoogleMap>
         ) : (
           <div>Loading failed</div>
