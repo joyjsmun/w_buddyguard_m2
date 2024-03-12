@@ -66,8 +66,12 @@ const Profile = () => {
     groupContractAddress: "",
   });
 
-  const randomPOAPAddress = "0x4f8f3D60f99a90F0e15b50C8E238d7E02c48086A"; // Example POAP contract address
-  const randomNFTAddress = "0x4f8f3D60f99a90F0e15b50C8E238d7E02c48086A"; // Example NFT contract address
+  //arb sep
+  // const randomPOAPAddress = "0x4f8f3D60f99a90F0e15b50C8E238d7E02c48086A"; // Example POAP contract address
+  // const randomNFTAddress = "0x4f8f3D60f99a90F0e15b50C8E238d7E02c48086A"; // Example NFT contract address
+
+  const randomPOAPAddress = "0x5d417CeEa6C8982d64965df86EA11Bcc82f46db3"; // Example POAP contract address
+  const randomNFTAddress = "0x5d417CeEa6C8982d64965df86EA11Bcc82f46db3"; // Example NFT contract address
 
   useEffect(() => {
     const fetchUserData = async () => {

@@ -10,7 +10,7 @@ import {
   embeddedWallet,
   ThirdwebProvider,
 } from "@thirdweb-dev/react";
-import { ArbitrumSepolia } from "@thirdweb-dev/chains";
+import { ArbitrumSepolia, Sepolia } from "@thirdweb-dev/chains";
 
 export const StatusContext = React.createContext({
   statusText: "",
@@ -40,7 +40,7 @@ export default function App({ Component, pageProps }: AppProps) {
       authConfig={{
         domain: process.env.NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN || "",
       }}
-      activeChain={ArbitrumSepolia}
+      activeChain={Sepolia}
       clientId="833996b2d080980da3975eb07563f830"
       supportedWallets={[
         metamaskWallet(),

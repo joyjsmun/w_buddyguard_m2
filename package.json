@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@arx-research/libhalo": "^1.2.27",
+    "@covalenthq/client-sdk": "^0.9.4",
     "@pushprotocol/restapi": "^1.6.8",
     "@pushprotocol/socket": "^0.5.3",
     "@react-google-maps/api": "^2.19.3",
