@@ -136,6 +136,12 @@ const Map = () => {
                   fillOpacity: 1,
                   strokeWeight: 0,
                 }}
+                label={{
+                  text: userId.slice(0, 6),
+                  color: "blue",
+                  fontSize: "12px",
+                  fontWeight: "bold",
+                }}
               />
             ))}
           </GoogleMap>
