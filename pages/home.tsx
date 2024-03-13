@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Modal from "../components/modal";
-import MapImage from "../public/assets/images/map_example.png";
+import Map from "../pages/map";
 
 import InboxIcon from "../public/assets/images/Icons/inbox.png";
 import Image from "next/image";
@@ -14,6 +14,7 @@ import { PushAPI } from "@pushprotocol/restapi";
 
 const Home = () => {
   const router = useRouter();
+  const isMapPage = router.pathname === "/map";
   const [isSosModalOpen, setIsSosModalOpen] = useState(false);
 
   const handleSosRequestModal = () => {
@@ -63,20 +64,19 @@ const Home = () => {
           </div>
         </div>
         <div
-          className="overflow-y-auto pt-4 px-4 flex flex-col space-y-2"
+          className="overflow-y-auto pt-4 px-4 flex flex-col space-y-2 -mb-10"
           style={{ paddingBottom: "60px" }}
         >
           <div className="flex flex-col space-y-1">
             <h2 className="text-[#121418] font-robotoBold text-lg">
               Explore Your Neighborhood
             </h2>
-            <button onClick={() => router.push("/map")}>
-              <Image
-                src={MapImage}
-                className="w-full h-40 rounded-lg"
-                alt="Map"
-              />
-            </button>
+            <div
+              className={`w-full ${isMapPage ? "h-screen" : "h-[32vh]"}`}
+              onClick={() => router.push("/map")}
+            >
+              <Map preview={!isMapPage} showOthers={false} />
+            </div>
           </div>
           <div className="flex flex-col space-y-2">
             <h2 className="text-[#121418] font-robotoBold text-lg">

@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 
-import { Map, live, timer } from "../public/assets/images";
+import { live, timer } from "../public/assets/images";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import Layout from "@/components/layout";
-//import AutoComplete from '../components/AutoComplete';
-import MapImage from "../public/assets/images/map_example.png";
+import Map from "../pages/map";
 
 const WalkRequestInfo = () => {
   const [address, setAddress] = useState("");
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const router = useRouter();
+  const isMapPage = router.pathname === "/map";
 
   return (
     <Layout>
@@ -21,13 +21,12 @@ const WalkRequestInfo = () => {
             <h1 className="text-[#121418] font-robotoBold text-lg mb-1">
               Walking Every Stop With You
             </h1>
-            <button onClick={() => router.push("/map")}>
-              <Image
-                src={MapImage}
-                className="w-full h-40 rounded-lg"
-                alt="Map"
-              />
-            </button>
+            <div
+              className={`w-full ${isMapPage ? "h-screen" : "h-[32vh]"}`}
+              onClick={() => router.push("/map")}
+            >
+              <Map preview={!isMapPage} showOthers={false} />
+            </div>
           </div>
           {/* Card Section */}
           <div className="bg-[#F2F2F2] px-4 py-3 rounded-lg flex flex-col  space-y-3 ">

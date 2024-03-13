@@ -31,8 +31,19 @@ const getUserColor = (userId: string) => {
 
 const { db: firestore } = initializeFirebaseClient();
 
-const Map = () => {
-  const containerStyle = { width: "100%", height: "100vh" };
+const Map = ({
+  preview,
+  showOthers,
+}: {
+  preview: boolean;
+  showOthers: boolean;
+}) => {
+  const containerStyle = {
+    width: "100%",
+    height: preview ? "30vh" : "100vh",
+    borderRadius: preview ? "8px" : "0",
+    overflow: "hidden",
+  };
   const [currentLocation, setCurrentLocation] = useState({ lat: 0, lng: 0 });
   const [userLocations, setUserLocations] = useState<
     Record<string, UserLocation>
@@ -110,7 +121,7 @@ const Map = () => {
 
   return (
     <Layout>
-      <div className="mt-12">
+      <div className="">
         {isLoaded ? (
           <GoogleMap
             mapContainerStyle={containerStyle}
@@ -125,25 +136,26 @@ const Map = () => {
             )}
 
             {/* Markers for other users */}
-            {Object.entries(userLocations).map(([userId, { location }]) => (
-              <Marker
-                key={userId}
-                position={{ lat: location.latitude, lng: location.longitude }}
-                icon={{
-                  path: google.maps.SymbolPath.CIRCLE,
-                  scale: 8,
-                  fillColor: getUserColor(userId),
-                  fillOpacity: 1,
-                  strokeWeight: 0,
-                }}
-                label={{
-                  text: userId.slice(0, 6),
-                  color: "blue",
-                  fontSize: "12px",
-                  fontWeight: "bold",
-                }}
-              />
-            ))}
+            {showOthers &&
+              Object.entries(userLocations).map(([userId, { location }]) => (
+                <Marker
+                  key={userId}
+                  position={{ lat: location.latitude, lng: location.longitude }}
+                  icon={{
+                    path: google.maps.SymbolPath.CIRCLE,
+                    scale: 10,
+                    fillColor: getUserColor(userId),
+                    fillOpacity: 1,
+                    strokeWeight: 0,
+                  }}
+                  label={{
+                    text: userId.slice(0, 6),
+                    color: "blue",
+                    fontSize: "16px",
+                    fontWeight: "bold",
+                  }}
+                />
+              ))}
           </GoogleMap>
         ) : (
           <div>Loading failed</div>

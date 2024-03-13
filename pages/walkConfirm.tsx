@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { Map, LogoImage, Avatar1, Avatar2 } from "../public/assets/images";
+import { LogoImage, Avatar1, Avatar2 } from "../public/assets/images";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Layout from "@/components/layout";
 import { ethers } from "ethers";
+import Map from "../pages/map";
 
 const WalkConfirm = () => {
   const router = useRouter();
+  const isMapPage = router.pathname === "/map";
+
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
 
   async function HandleCreateOrder() {
@@ -77,13 +80,12 @@ const WalkConfirm = () => {
             <h1 className="text-gray-900 font-robotoBold text-lg">
               Confirm Your Buddy Guard
             </h1>
-            <button onClick={() => router.push("/hangout")}>
-              <Image
-                className="w-full h-40 mb-2 rounded-lg"
-                src={Map}
-                alt="Map"
-              />
-            </button>
+            <div
+              className={`w-full ${isMapPage ? "h-screen" : "h-[32vh]"}`}
+              onClick={() => router.push("/hangout")}
+            >
+              <Map preview={!isMapPage} showOthers={true} />
+            </div>
           </div>
           {/* Card Section */}
           <div className="rounded-lg bg-[#F2F2F2] p-1 flex flex-col space-y-2">
