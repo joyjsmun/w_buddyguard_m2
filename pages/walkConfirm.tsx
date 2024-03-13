@@ -82,7 +82,7 @@ const WalkConfirm = () => {
             </h1>
             <div
               className={`w-full ${isMapPage ? "h-screen" : "h-[32vh]"}`}
-              onClick={() => router.push("/hangout")}
+              // onClick={() => router.push("/map")}
             >
               <Map preview={!isMapPage} showOthers={true} />
             </div>
