@@ -428,9 +428,6 @@ const WalkStatus = () => {
               <div className="rounded-3xl bg-gray-300 px-4 py-4 flex flex-col space-y-2">
                 <div className="flex flex-row items-center space-x-2">
                   <Image src={pin2} className="w-10 h-10" alt="Pin" />
-                  <p className="text-base font-latoLight">
-                    La Sagrada Familia, Barcelona, Spain
-                  </p>
                 </div>
                 {infoWindowData && <p>{infoWindowData}</p>}
               </div>
