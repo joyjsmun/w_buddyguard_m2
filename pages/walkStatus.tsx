@@ -428,7 +428,7 @@ const WalkStatus = () => {
               <div className="rounded-2xl bg-gray-300 px-4 py-2 flex flex-col space-y-2">
                 <div className="flex flex-row items-center space-x-2">
                   <Image src={pin2} className="w-10 h-10" alt="Pin" />
-                  <div>{infoWindowData && { infoWindowData }}</div>
+                  <div>{infoWindowData}</div>
                 </div>
               </div>
             </div>
