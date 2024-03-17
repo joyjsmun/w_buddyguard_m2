@@ -423,13 +423,13 @@ const WalkStatus = () => {
             <div className="flex flex-col space-y-2">
               <div className="flex flex-row justify-between">
                 <p className="font-robotoBold">Current Location</p>
-                <p className="font-lato text-red-500">3 min left</p>
+                {/* <p className="font-lato text-red-500">3 min left</p> */}
               </div>
-              <div className="rounded-3xl bg-gray-300 px-4 py-4 flex flex-col space-y-2">
+              <div className="rounded-2xl bg-gray-300 px-4 py-2 flex flex-col space-y-2">
                 <div className="flex flex-row items-center space-x-2">
                   <Image src={pin2} className="w-10 h-10" alt="Pin" />
+                  <div>{infoWindowData && { infoWindowData }}</div>
                 </div>
-                {infoWindowData && <p>{infoWindowData}</p>}
               </div>
             </div>
             {isSosModal && (
