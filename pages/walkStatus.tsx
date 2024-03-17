@@ -1,18 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-
-import {
-  Avatar1,
-  Avatar2,
-  LogoImage,
-  Map,
-  pin,
-  pin2,
-} from "../public/assets/images";
+import { Avatar1, Avatar2, LogoImage, pin2 } from "../public/assets/images";
 import Modal from "../components/modal";
 import Layout from "@/components/layout";
-
 import {
   doc,
   query,
@@ -23,20 +14,54 @@ import {
   increment,
   collection,
   serverTimestamp,
+  onSnapshot,
 } from "firebase/firestore";
 import { ethers } from "ethers";
 import initializeFirebaseClient from "../lib/initFirebase";
+import { getAuth, User } from "firebase/auth";
+import Map from "../pages/map";
+
+interface UserLocation {
+  location: {
+    latitude: number;
+    longitude: number;
+  };
+  lastUpdated: any;
+  previousLocation: {
+    latitude: number;
+    longitude: number;
+  };
+}
+
+import { StaticImageData } from "next/image";
+
+interface BuddyGuard {
+  id: number;
+  avatar: StaticImageData;
+  address: string;
+}
 
 const WalkStatus = () => {
   const router = useRouter();
   const [isSosModal, setIsSosModal] = useState(false);
   const [isOrderId, setIsOrderId] = useState(55);
-  const [selectedBuddyGuard, setSelectedBuddyGuard] = useState(null);
-  const [isCurrentBuddyGuard, setIsCurrentBuddyGuard] = useState([]);
+  const [selectedBuddyGuard, setSelectedBuddyGuard] =
+    useState<BuddyGuard | null>(null);
+  const [isCurrentBuddyGuard, setIsCurrentBuddyGuard] = useState<BuddyGuard[]>(
+    []
+  );
   const [selectedRemoveBuddyGuard, setSelectedRemoveBuddyGuard] =
-    useState(null);
+    useState<BuddyGuard | null>(null);
 
-  const [nearbyBuddyGuards, setNearbyBuddyGuards] = useState([
+  const [userLocations, setUserLocations] = useState<
+    Record<string, UserLocation>
+  >({});
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [infoWindowData, setInfoWindowData] = useState<string | null>(null);
+
+  const isMapPage = router.pathname === "/map";
+
+  const [nearbyBuddyGuards, setNearbyBuddyGuards] = useState<BuddyGuard[]>([
     {
       id: 1,
       avatar: Avatar1,
@@ -49,13 +74,45 @@ const WalkStatus = () => {
     },
   ]);
 
-  // Function to handle selecting a Buddy Guard
-  const handleSelectBuddyGuard = (buddyGuard) => {
-    setSelectedBuddyGuard(buddyGuard);
+  const { db: firestore } = initializeFirebaseClient();
+
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setCurrentUser(user);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    // Listen for changes in user locations
+    const unsubscribe = onSnapshot(
+      collection(firestore, "users"),
+      (snapshot) => {
+        const locations = snapshot.docs.reduce((acc, doc) => {
+          acc[doc.id] = doc.data() as UserLocation;
+          return acc;
+        }, {} as Record<string, UserLocation>);
+        setUserLocations(locations);
+      }
+    );
+
+    // Clean up the listener when the component unmounts
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  const handleInfoWindowData = (data: string | null) => {
+    setInfoWindowData(data);
   };
 
+  // Function to handle selecting a Buddy Guard
+  const handleSelectBuddyGuard = (buddyGuard: BuddyGuard) => {
+    setSelectedBuddyGuard(buddyGuard);
+  };
   // Add Guardian
-
   const handleAddBuddyGuard = async () => {
     if (!selectedBuddyGuard) {
       console.error("No Buddy Guard selected.");
@@ -81,7 +138,7 @@ const WalkStatus = () => {
   };
 
   // Remove Guardian
-  const handleRemoveBuddyGuard = async (buddyGuardToRemove) => {
+  const handleRemoveBuddyGuard = async (buddyGuardToRemove: BuddyGuard) => {
     if (!buddyGuardToRemove) {
       console.error("No buddy guard selected for removal.");
       return;
@@ -100,11 +157,6 @@ const WalkStatus = () => {
       const updatedCurrentBuddyGuards = prevCurrentBuddyGuards.filter(
         (guard) => guard.id !== buddyGuardToRemove.id
       );
-
-      // // Call handleChangeGuardians only if buddyGuardToRemove is not null
-      // if (buddyGuardToRemove && buddyGuardToRemove.address) {
-      //   handleChangeGuardians(null, buddyGuardToRemove); // Pass buddyGuardToRemove here
-      // }
 
       return updatedCurrentBuddyGuards;
     });
@@ -252,32 +304,42 @@ const WalkStatus = () => {
           totalRewards: increment(5000),
           totalReputation: increment(100), // Increment reputation by 1
         });
+
         // Get the updated totalRewards from the user document
         const userSnapshot = await getDoc(userRef);
-        const totalRewards = userSnapshot.data().totalRewards;
-        const totalReputation = userSnapshot.data().totalReputation;
+        if (userSnapshot.exists()) {
+          const totalRewards = userSnapshot.data()?.totalRewards;
+          const totalReputation = userSnapshot.data()?.totalReputation;
 
-        // Get the last orderNumber
-        const recordsRef = collection(db, `users/${user.uid}/rewardRecords`);
-        const querySnapshot = await getDocs(
-          query(collection(db, `users/${user.uid}/rewardRecords`))
-        );
-        const lastRecord = querySnapshot.docs[querySnapshot.docs.length - 1];
-        const lastOrderNumber = lastRecord ? lastRecord.data().orderNumber : 0;
+          // Get the last orderNumber
+          const recordsRef = collection(db, `users/${user.uid}/rewardRecords`);
+          const querySnapshot = await getDocs(
+            query(collection(db, `users/${user.uid}/rewardRecords`))
+          );
+          const lastRecord = querySnapshot.docs[querySnapshot.docs.length - 1];
+          const lastOrderNumber = lastRecord
+            ? lastRecord.data().orderNumber
+            : 0;
 
-        // Add record to the user's reward_records subcollection
-        await addDoc(recordsRef, {
-          orderNumber: increment(lastOrderNumber + 1),
-          type: "Buddy Guard Service Reward",
-          rewardAmount: 5000,
-          totalRewards: totalRewards,
-          totalReputation: totalReputation,
-          rewardReceivedAt: serverTimestamp(),
-        });
+          // Add record to the user's reward_records subcollection
+          await addDoc(recordsRef, {
+            orderNumber: increment(lastOrderNumber + 1),
+            type: "Buddy Guard Service Reward",
+            rewardAmount: 5000,
+            totalRewards: totalRewards,
+            totalReputation: totalReputation,
+            rewardReceivedAt: serverTimestamp(),
+          });
 
-        console.log("Successfully updated user data and added record.");
-        // Navigate to home page after successful update
-        router.push("/home");
+          console.log("Successfully updated user data and added record.");
+          // Navigate to home page after successful update
+          router.push("/home");
+        } else {
+          console.error("User document does not exist.");
+          // Display an error message to the user, indicating that the user document does not exist
+          // For example:
+          // setError("User document does not exist. Please try again later.");
+        }
       } else {
         console.error("User not found.");
         // Display an error message to the user, indicating that they need to sign in first
@@ -305,17 +367,18 @@ const WalkStatus = () => {
         <div className="px-4 flex w-full flex-col space-y-2">
           {/* Top Section */}
           <div className="flex flex-col space-y-2">
-            <h1 className="font-robotoBold text-lg text-red-500">
-              Currently We are Walking With You ...
-            </h1>
-            {/* 
-            <button onClick={() => router.push("/hangout")}>
-              <Image
-                className="w-full h-40 mb-2 rounded-lg"
-                src={Map}
-                alt="Map"
+            <div
+              className={`w-full ${isMapPage ? "h-screen" : "h-[32vh]"}`}
+              onClick={() => router.push("/map")}
+            >
+              <Map
+                preview={!isMapPage}
+                showOthers={false}
+                userLocations={userLocations}
+                currentUser={currentUser}
+                onInfoWindowData={handleInfoWindowData}
               />
-            </button> */}
+            </div>
           </div>
           <div className="rounded-lg bg-gray-200 px-4 py-2 flex flex-col space-y-4">
             <div className="flex flex-col space-y-2">
@@ -362,11 +425,14 @@ const WalkStatus = () => {
                 <p className="font-robotoBold">Current Location</p>
                 <p className="font-lato text-red-500">3 min left</p>
               </div>
-              <div className="rounded-3xl bg-gray-300 px-4 py-4 flex flex-row items-center space-x-2">
-                <Image src={pin2} className="w-10 h-10" alt="Pin" />
-                <p className="text-base font-latoLight">
-                  La Sagrada Familia, Barcelona, Spain
-                </p>
+              <div className="rounded-3xl bg-gray-300 px-4 py-4 flex flex-col space-y-2">
+                <div className="flex flex-row items-center space-x-2">
+                  <Image src={pin2} className="w-10 h-10" alt="Pin" />
+                  <p className="text-base font-latoLight">
+                    La Sagrada Familia, Barcelona, Spain
+                  </p>
+                </div>
+                {infoWindowData && <p>{infoWindowData}</p>}
               </div>
             </div>
             {isSosModal && (

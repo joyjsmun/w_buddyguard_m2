@@ -1,16 +1,64 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { LogoImage, Avatar1, Avatar2 } from "../public/assets/images";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Layout from "@/components/layout";
 import { ethers } from "ethers";
 import Map from "../pages/map";
+import initializeFirebaseClient from "../lib/initFirebase";
+import { getAuth, User } from "firebase/auth";
+import { collection, onSnapshot } from "firebase/firestore";
+
+interface UserLocation {
+  location: {
+    latitude: number;
+    longitude: number;
+  };
+  lastUpdated: any;
+  previousLocation: {
+    latitude: number;
+    longitude: number;
+  };
+}
 
 const WalkConfirm = () => {
   const router = useRouter();
   const isMapPage = router.pathname === "/map";
-
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [userLocations, setUserLocations] = useState<
+    Record<string, UserLocation>
+  >({});
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
+
+  const { db: firestore } = initializeFirebaseClient();
+
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setCurrentUser(user);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    // Listen for changes in user locations
+    const unsubscribe = onSnapshot(
+      collection(firestore, "users"),
+      (snapshot) => {
+        const locations = snapshot.docs.reduce((acc, doc) => {
+          acc[doc.id] = doc.data() as UserLocation;
+          return acc;
+        }, {} as Record<string, UserLocation>);
+        setUserLocations(locations);
+      }
+    );
+
+    // Clean up the listener when the component unmounts
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   async function HandleCreateOrder() {
     //const contractAddress = process.env.BUDDY_GUARD_CONTRACT;
@@ -80,11 +128,13 @@ const WalkConfirm = () => {
             <h1 className="text-gray-900 font-robotoBold text-lg">
               Confirm Your Buddy Guard
             </h1>
-            <div
-              className={`w-full ${isMapPage ? "h-screen" : "h-[32vh]"}`}
-              // onClick={() => router.push("/map")}
-            >
-              <Map preview={!isMapPage} showOthers={true} />
+            <div className={`w-full ${isMapPage ? "h-screen" : "h-[32vh]"}`}>
+              <Map
+                preview={!isMapPage}
+                showOthers={true}
+                userLocations={userLocations}
+                currentUser={currentUser}
+              />
             </div>
           </div>
           {/* Card Section */}
