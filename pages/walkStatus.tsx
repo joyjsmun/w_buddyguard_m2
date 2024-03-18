@@ -434,7 +434,7 @@ const WalkStatus = () => {
               <div className="bg-[#ECEC04] px-4 py-2 flex flex-col space-y-2">
                 <div className="flex flex-row items-center space-x-2">
                   <Image src={pin2} className="w-7 h-7" alt="Pin" />
-                  <div className="text-[#0A0A0A]">{infoWindowData}</div>
+                  <div className="text-[#0A0A0A] text-sm">{infoWindowData}</div>
                 </div>
               </div>
             </div>
