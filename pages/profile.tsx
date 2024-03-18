@@ -357,7 +357,7 @@ const Profile = () => {
                 <div className="flex space-x-2">
                   <div className="flex flex-row pl-5 justify-start items-center space-x-5 border-[#ECEC04] border-2 w-[80%] h-16">
                     <Image src={verified} className="w-7 h-7" alt="Group" />
-                    <p className="font-lato text-[#0A0A0A] text-sm ">
+                    <p className="font-lato text-[#d1d1d1] text-sm ">
                       Verification is completed with WaltID
                     </p>
                   </div>
