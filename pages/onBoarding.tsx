@@ -75,10 +75,10 @@ const OnBoarding = () => {
             alt={slides[currentSlideIndex].title}
           />
         </div>
-        <h1 className="text-3xl font-latoBold text-[#0A0A0A] text-center pt-4 px-2">
+        <h1 className="text-2xl font-latoBold text-[#0A0A0A] text-center pt-4 px-2">
           {slides[currentSlideIndex].title}
         </h1>
-        <p className="text-xl font-latoLight text-[#0A0A0A] pt-2 px-10 text-center">
+        <p className="text-lg font-latoLight text-[#0A0A0A] pt-2 px-10 text-center">
           {slides[currentSlideIndex].subtitle}
         </p>
         <div className="absolute   w-6 h-6 top-0 left-3  rounded-full origin-bottom-right translate-y-3 bg-[#0A0A0A]"></div>{" "}
