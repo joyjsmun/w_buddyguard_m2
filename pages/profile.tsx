@@ -642,7 +642,11 @@ const Profile = () => {
                 </div>
                 <div className="flex space-x-2">
                   <div className="flex flex-row pl-2  justify-between items-center space-x-2   border-[#ECEC04] border-2 text-[#d1d1d1] w-[100%] h-16 px-2">
-                    <Image src={reputationImg} className="w-9 h-9" alt="Coin" />
+                    {/* <Image
+                      src={reputationImg}
+                      className="w-9 h-9 pt-2"
+                      alt="Coin"
+                    /> */}
                     <p className="font-bold text-base pr-4 text-center ">
                       <span className="font-latoBlack">{reputation}</span>{" "}
                       <span className="font-latoBlak text-[#d1d1d1]">High</span>

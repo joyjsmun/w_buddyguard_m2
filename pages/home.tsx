@@ -149,26 +149,26 @@ const Home = () => {
             <p className="mb-3 font-lato">
               We Will Send This Msg to the Buddy Guard :
             </p>
-            <div className="bg-red-500 w-30 h-34 mb-3 flex flex-col justify-center space-y-2 p-3 rounded-lg">
-              <p className="font-lato text-white text-center">
+            <div className="bg-[#ECEC04] w-30 h-34 mb-3 flex flex-col justify-center space-y-2 p-3  ">
+              <p className="font-lato text-[#0A0A0A] text-center">
                 **Emergency Situation**
               </p>
 
-              <p className="font-lato text-white">SOS User : Vitalik J</p>
-              <p className="font-lato text-white">
+              <p className="font-lato text-[#0A0A0A]">SOS User : Vitalik J</p>
+              <p className="font-lato text-[#0A0A0A]">
                 SOS Location Link : 1212st, Barcelona, Spain
               </p>
-              <p className="font-lato text-white">
+              <p className="font-lato text-[#0A0A0A]">
                 Personal Contact Number : 987-232-1829
               </p>
             </div>
-            <p className="text-red-500 font-latoLight leading-5">
+            <p className="text-[#0A0A0A] font-latoLight leading-5">
               Help will be on the way soon. If possible, provide any additional
               information or updates to the Buddy Guard Group once they arrive
             </p>
             <button
               onClick={() => handleSendSOSMessage(signer)}
-              className="bg-red-500 text-white font-latoBlack py-4 px-6 rounded-lg mt-4 w-full"
+              className="bg-[#ECEC04] text-[#0A0A0A] font-lato py-3 px-6   mt-4 w-full"
             >
               Send SOS Message Now
             </button>
