@@ -365,7 +365,7 @@ const Profile = () => {
                     disabled
                     className=" bg-[#ECEC04] w-20 h-16 px-2 flex justify-center items-center"
                   >
-                    <p className="font-latoBlack text-[#0A0A0A]">SUCCESS</p>
+                    <p className="font-lato text-[#0A0A0A]">SUCCESS</p>
                   </button>
                 </div>
               </div>
