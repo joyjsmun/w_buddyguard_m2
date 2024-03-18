@@ -1,6 +1,11 @@
 export { default as LogoImage } from "./logo.png";
 export { default as Map } from "./map_example.png";
 
+// black and white
+export { default as bell } from "./Icons/bell.png";
+export { default as next } from "./Icons/next.png";
+export { default as arrive } from "./Icons/arrive.png";
+
 export { default as Avatar1 } from "./avatar1.png";
 export { default as Avatar2 } from "./avatar2.png";
 

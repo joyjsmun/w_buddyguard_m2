@@ -7,6 +7,7 @@ import {
   Hangout3,
   Hangout4,
   Hangout5,
+  pin2,
 } from "../public/assets/images";
 import { useRouter } from "next/router";
 import Image from "next/image";
@@ -63,7 +64,7 @@ const Hangout = () => {
 
   return (
     <Layout>
-      <div className="bg-white  min-h-screen flex flex-col pb-20 ">
+      <div className="bg-[#0A0A0A]  min-h-screen flex flex-col pb-10 ">
         <div className="pt-9  flex justify-between items-center">
           <div className="pt-9 px-4 flex flex-col space-y-4">
             <div className="flex flex-row justify-between items-center">
@@ -75,47 +76,44 @@ const Hangout = () => {
                 className="flex flex-row"
                 onClick={() => router.push("Setting")}
               >
-                <div className="flex flex-row items-center">
-                  {/* <Image src={pin} alt="Pin" className="w-3 h-3 mr-2" /> */}
-                  {/* <p className="text-[#121418] font-latoBold text-sm">
-                    Current Location : Barcelona
-                  </p> */}
-                </div>
+                <div className="flex flex-row items-center"></div>
               </button>
             </div>
 
             <div className="flex flex-col space-y-2">
               <div className="flex flex-col justify-between">
-                <p className="text-[#121418] font-robotoBold  text-lg">
+                <p className="text-[#d1d1d1] font-lato text-sm mb-2">
                   Your NFT/POAP Info
                 </p>
                 {isLoading ? (
-                  <p className="text-gray-500">Loading NFT data...</p>
+                  <p className="text-[#d1d1d1]">Loading NFT data...</p>
                 ) : nftContractAddress ? (
-                  <div className="border-2 border-gray-500 rounded-md p-3">
-                    <div className="flex flex-col">
-                      <p>
-                        <span className="font-robotoBold">
+                  <div className="border-[#ECEC04] border-2 flex flex-row space-x-3 px-3 py-5 relative">
+                    <div className="w-1/2 flex flex-row justify-center items-center  ">
+                      <MediaRenderer
+                        src={nftImageUrl}
+                        alt="nft image"
+                        width={`${30}`}
+                        height={`${30}`}
+                      />
+                    </div>
+                    <div className="flex flex-col text-sm">
+                      <p className="text-[#d1d1d1]">
+                        <span className="font-lato text-[#d1d1d1] ">
                           NFT Contract Address :
                         </span>{" "}
                         {shortenAddress(nftContractAddress)}
                       </p>
-                      <p>
-                        <span className="font-robotoBold">NFT Name :</span>{" "}
+                      <p className="text-[#d1d1d1] text-sm">
+                        <span className="font-lato text-[#d1d1d1]">
+                          NFT Name :
+                        </span>{" "}
                         {nftName}
                       </p>
                     </div>
-                    <div className="w-1/2 flex flex-row justify-center items-center border-2 border-gray-500 p-1">
-                      <MediaRenderer
-                        src={nftImageUrl}
-                        alt="nft image"
-                        width={`${20}`}
-                        height={`${20}`}
-                      />
-                    </div>
                   </div>
                 ) : (
-                  <p className="text-center text-gray-500">
+                  <p className="text-center text-[#d1d1d1]">
                     You do not have any NFT/POAP yet!
                   </p>
                 )}
@@ -133,53 +131,115 @@ const Hangout = () => {
             </div>
             {/* Gated Hangout*/}
             <div style={{ marginBottom: 20 }}>
-              <p className="text-[#121418] font-robotoBold  text-lg mb-4">
+              <p className="text-[#d1d1d1] font-lato text-sm ">
                 Your NFT/POAP can attend these
               </p>
               {isLoading ? (
                 <p className="text-gray-500">Loading NFT data...</p>
               ) : nftContractAddress ? (
                 <>
-                  <div className="flex-row flex-wrap space-x-1">
+                  {/* list of events */}
+                  <div className="grid-cols-2 grid-rows-2 space-y-4 justify-center">
                     <button
-                      style={{ width: "49%", marginBottom: 4 }}
+                      style={{ width: "48%" }}
                       onClick={() => router.push("hangoutDetail")}
+                      className="mr-1"
                     >
-                      <Image
-                        src={Hangout1}
-                        alt="Hangout"
-                        style={{ width: "100%", height: 200, borderRadius: 10 }}
-                      />
+                      <div className="bg-[#ECEC04] flex flex-col justify-around w-full h-44 relative pl-1">
+                        {" "}
+                        <div className="flex flex-col items-end w-full px-3">
+                          <p className="text-[#121418] font-roboto text-xs mb-2">
+                            Mar 18
+                          </p>
+                        </div>
+                        <div className="text-[#121418] font-lato text-md px-3">
+                          MU Buenos Aires
+                        </div>
+                        <div className="flex flex-row">
+                          <Image src={pin2} alt="Pin" className="w-4 h-4" />
+                          <p className="text-[#121418] font-lato text-xs">
+                            Coworking Space, BA
+                          </p>
+                        </div>
+                        <div className="absolute bottom-0 right-0 w-8 h-8 bg- transform rotate-45 origin-bottom-right translate-y-6 bg-[#0A0A0A]"></div>{" "}
+                        <div className="absolute  w-5 h-5 top-0 left-3  rounded-full origin-bottom-right translate-y-3 bg-[#0A0A0A]"></div>{" "}
+                      </div>
                     </button>
                     <button
-                      style={{ width: "49%", marginBottom: 4 }}
+                      style={{ width: "48%" }}
                       onClick={() => router.push("hangoutDetail")}
+                      className="mr-1"
                     >
-                      <Image
-                        src={Hangout5}
-                        alt="Hangout"
-                        style={{ width: "100%", height: 200, borderRadius: 10 }}
-                      />
+                      <div className="bg-[#ECEC04] flex flex-col justify-around w-full h-44 relative">
+                        {" "}
+                        <div className="flex flex-col items-end w-full px-3">
+                          <p className="text-[#121418] font-roboto text-xs mb-2">
+                            May 20
+                          </p>
+                        </div>
+                        <div className="text-[#121418] font-lato text-md px-3">
+                          Buddy-Guard <br />
+                          After Party
+                        </div>
+                        <div className="flex flex-row">
+                          <Image src={pin2} alt="Pin" className="w-4 h-4" />
+                          <p className="text-[#121418] font-lato text-xs">
+                            Bar ERC 721, Dubai
+                          </p>
+                        </div>
+                        <div className="absolute bottom-0 right-0 w-8 h-8 bg- transform rotate-45 origin-bottom-right translate-y-6 bg-[#0A0A0A]"></div>{" "}
+                        <div className="absolute  w-5 h-5 top-0 left-3  rounded-full origin-bottom-right translate-y-3 bg-[#0A0A0A]"></div>{" "}
+                      </div>
                     </button>
                     <button
-                      style={{ width: "48%", marginBottom: 4 }}
+                      style={{ width: "48%" }}
                       onClick={() => router.push("hangoutDetail")}
+                      className="mr-1"
                     >
-                      <Image
-                        src={Hangout3}
-                        alt="Hangout"
-                        style={{ width: "100%", height: 200, borderRadius: 10 }}
-                      />
+                      <div className="bg-[#ECEC04] flex flex-col justify-around w-full h-44 relative pl-1">
+                        {" "}
+                        <div className="flex flex-col items-end w-full px-3">
+                          <p className="text-[#121418] font-roboto text-xs mb-2">
+                            July 7
+                          </p>
+                        </div>
+                        <div className="text-[#121418] font-lato text-md px-3">
+                          ETH CC
+                        </div>
+                        <div className="flex flex-row">
+                          <Image src={pin2} alt="Pin" className="w-4 h-4" />
+                          <p className="text-[#121418] font-lato text-xs">
+                            Belgium
+                          </p>
+                        </div>
+                        <div className="absolute bottom-0 right-0 w-8 h-8 bg- transform rotate-45 origin-bottom-right translate-y-6 bg-[#0A0A0A]"></div>{" "}
+                        <div className="absolute  w-5 h-5 top-0 left-3  rounded-full origin-bottom-right translate-y-3 bg-[#0A0A0A]"></div>{" "}
+                      </div>
                     </button>
                     <button
-                      style={{ width: "48%", marginBottom: 4 }}
+                      style={{ width: "48%" }}
                       onClick={() => router.push("hangoutDetail")}
+                      className="mr-1"
                     >
-                      <Image
-                        src={Hangout4}
-                        alt="Hangout"
-                        style={{ width: "100%", height: 200, borderRadius: 10 }}
-                      />
+                      <div className="bg-[#ECEC04] flex flex-col justify-around w-full h-44 relative pl-1">
+                        {" "}
+                        <div className="flex flex-col items-end w-full px-3">
+                          <p className="text-[#121418] font-roboto text-xs mb-2">
+                            Nov 10
+                          </p>
+                        </div>
+                        <div className="text-[#121418] font-lato text-md px-3">
+                          DevCon
+                        </div>
+                        <div className="flex flex-row">
+                          <Image src={pin2} alt="Pin" className="w-4 h-4" />
+                          <p className="text-[#121418] font-lato text-xs">
+                            Bangkok, Thailand
+                          </p>
+                        </div>
+                        <div className="absolute bottom-0 right-0 w-8 h-8 bg- transform rotate-45 origin-bottom-right translate-y-6 bg-[#0A0A0A]"></div>{" "}
+                        <div className="absolute  w-5 h-5 top-0 left-3  rounded-full origin-bottom-right translate-y-3 bg-[#0A0A0A]"></div>{" "}
+                      </div>
                     </button>
                   </div>
                 </>

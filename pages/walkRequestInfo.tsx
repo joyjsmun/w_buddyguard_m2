@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { live, timer } from "../public/assets/images";
+import { live, next, timer } from "../public/assets/images";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import Layout from "@/components/layout";
@@ -14,13 +14,13 @@ const WalkRequestInfo = () => {
 
   return (
     <Layout>
-      <div className="bg-white min-h-screen flex flex-col items-center ">
+      <div className="bg-[#0A0A0A] min-h-screen flex flex-col items-center ">
         <div className="flex flex-col w-full space-y-2 p-4 mt-12">
           {/* Top Section */}
           <div className="flex flex-col space-y-2">
-            <h1 className="text-[#121418] font-robotoBold text-lg mb-1">
+            <h2 className="text-[#d1d1d1] font-lato text-sm mb-1">
               Walking Every Stop With You
-            </h1>
+            </h2>
             <div
               className={`w-full ${isMapPage ? "h-screen" : "h-[32vh]"}`}
               onClick={() => router.push("/map")}
@@ -29,17 +29,20 @@ const WalkRequestInfo = () => {
             </div>
           </div>
           {/* Card Section */}
-          <div className="bg-[#F2F2F2] px-4 py-3 rounded-lg flex flex-col  space-y-3 ">
+          <div className="border-[#ECEC04] border-2 px-4 py-3  flex flex-col  space-y-3 ">
             {/* Choose Buddy */}
-            <div className="flex flex-row items-center   ">
+            <div className="flex flex-row items-center">
               <div className="flex flex-col space-y-1 w-full">
-                <label htmlFor="address" className="font-robotoBold">
+                <label
+                  htmlFor="address"
+                  className="text-[#d1d1d1] font-lato text-sm mb-1"
+                >
                   Address
                 </label>
                 <textarea
                   id="address"
-                  placeholder="Type what you need"
-                  className="w-full pl-2 pt-1  border-[#1B75BC] border-2 tex-lg rounded-lg flex justify-center "
+                  placeholder="Type Your Address"
+                  className="w-full pl-2 pt-1  border-[#ECEC04] border-2 tex-lg   flex justify-center "
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
                 />
@@ -48,14 +51,16 @@ const WalkRequestInfo = () => {
 
             {/* Choose Options */}
             <div className="flex flex-row items-center  ">
-              <div className="flex flex-col space-y-1  w-full">
-                <h2 className="font-robotoBold mb-1">Choose Your Buddy</h2>
+              <div className="flex flex-col space-y-2  w-full mb-3">
+                <h2 className="text-[#d1d1d1] font-lato text-sm mb-2">
+                  Choose Your Buddy
+                </h2>
                 <div className="flex flex-col justify-between ">
                   <button
-                    className={` flex items-center justify-start px-4 py-1 border-2 border-[#4F9171] rounded-2xl mb-3 ${
+                    className={` flex items-center justify-start px-4 py-1 border-2 border-[#ECEC04]  mb-3 ${
                       selectedOption === "timer"
-                        ? "bg-[#4F9171] text-white font-latoBlack"
-                        : "border-[#4F9171]"
+                        ? "bg-[#ECEC04] text-[#0A0A0A] font-latoBlack"
+                        : "border-[#ECEC04] text-[#d1d1d1]"
                     }`}
                     onClick={() => setSelectedOption("timer")}
                   >
@@ -65,15 +70,15 @@ const WalkRequestInfo = () => {
                     </span>
                   </button>
                   <button
-                    className={`flex items-center justify-start px-4 py-1 border-2 border-[#4F9171] rounded-2xl ${
+                    className={`flex items-center justify-start px-4 py-1 border-2 border-[#ECEC04]  ${
                       selectedOption === "live"
-                        ? "bg-[#4F9171] text-white font-latoBlack"
-                        : " border-[#4F9171]"
+                        ? "bg-[#ECEC04] text-[#0A0A0A] font-latoBlack"
+                        : " border-[#ECEC04] text-[#d1d1d1]"
                     }`}
                     onClick={() => setSelectedOption("live")}
                   >
                     <Image src={live} className="w-10 h-10" alt="Live" />
-                    <span className="text-md font-lato  ">
+                    <span className="text-md font-lato ml-4 ">
                       Request Live Monitoring
                     </span>
                   </button>
@@ -84,9 +89,10 @@ const WalkRequestInfo = () => {
             {/* Next Button */}
             <button
               onClick={() => router.push("walkConfirm")}
-              className="bg-[#4F9171] px-4 py-2 w-full flex items-center justify-center text-white font-latoBlack text-md  rounded-lg"
+              className="bg-[#ECEC04] px-4 py-2  w-full flex items-center justify-center text-[#121418] font-lato text-md "
             >
               NEXT
+              <Image src={next} className="w-8 h-8 ml-4" alt="Live" />
             </button>
           </div>
         </div>

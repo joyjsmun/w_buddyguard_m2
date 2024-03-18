@@ -20,6 +20,11 @@ module.exports = {
       lato: ['"Lato"', "sans-serif"],
       latoBold: ['"Lato"', "sans-serif"],
       latoBlack: ['"Lato"', "sans-serif"],
+
+      kodeMono: ['"Kode Mono"', "monospace"],
+      kodeMedium: ['"Kode Mono"', "monospace"],
+      kodeSemi: ['"Kode Mono"', "monospace"],
+      kodeBold: ['"Kode Mono"', "monospace"],
     },
     fontWeight: {
       robotoLight: ["300"],
@@ -32,6 +37,11 @@ module.exports = {
       lato: ["400"],
       latoBold: ["700"],
       latoBlack: ["900"],
+
+      kodeMono: ["400"],
+      kodeMedium: ["500"],
+      kodeSemi: ["600"],
+      kodeBold: ["700"],
     },
   },
   plugins: [],

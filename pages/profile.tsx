@@ -301,11 +301,11 @@ const Profile = () => {
 
   return (
     <Layout>
-      <div className="bg-white min-h-screen relative mt-16">
-        <div className="pt-3 px-4 space-y-4">
+      <div className="bg-[#0A0A0A] min-h-screen relative mt-12">
+        <div className="pt-3 px-4 ">
           {/* Top Section */}
-          <div className="space-y-2">
-            <div className="flex flex-col justify-center items-center w-100 h-50 px-8 py-4 bg-[#F2F2F2] rounded-lg relative">
+          <div className="">
+            <div className="flex flex-col justify-center items-center w-100 h-50 px-8 py-8 bg-[#ECEC04] relative">
               <button
                 className="absolute top-2 right-3"
                 onClick={onClickToggleBarcodeModal}
@@ -342,7 +342,7 @@ const Profile = () => {
             </div>
           </div>
           {/* Info Section */}
-          <div className="space-y-4">
+          <div className="space-y-1">
             {/* Verified User Info */}
             {isVerified ? (
               <div>
@@ -355,15 +355,15 @@ const Profile = () => {
                   </div>
                 </Modal> */}
                 <div className="flex space-x-2">
-                  <div className="flex flex-row pl-5 justify-start items-center space-x-5 rounded-lg bg-[#F2F2F2] w-[80%] h-16">
-                    <Image src={verified} className="w-11 h-11" alt="Group" />
-                    <p className="font-lato  text-gray-900 text-sm ">
+                  <div className="flex flex-row pl-5 justify-start items-center space-x-5   bg-[#F2F2F2] w-[80%] h-16">
+                    <Image src={verified} className="w-7 h-7" alt="Group" />
+                    <p className="font-lato  text-[#d1d1d1] text-sm ">
                       Verification is completed with WaltID
                     </p>
                   </div>
                   <button
                     disabled
-                    className="rounded-lg bg-green-500 w-20 h-16 px-2 flex justify-center items-center"
+                    className="  bg-[#ECEC04] w-20 h-16 px-2 flex justify-center items-center"
                   >
                     <p className="font-latoBlack text-white">SUCCESS</p>
                   </button>
@@ -371,21 +371,21 @@ const Profile = () => {
               </div>
             ) : (
               <div>
-                <p className="font-robotoBold mb-1">
+                <p className="font-roboto mb-1">
                   Please Verify Your Wallet with WaltID
                 </p>
                 <div className="flex space-x-2">
-                  <div className="flex flex-row pl-5 justify-start items-center space-x-5 rounded-lg bg-[#F2F2F2] w-[80%] h-16">
-                    <Image src={verified} className="w-11 h-11" alt="Group" />
-                    <p className="font-lato text-base">
+                  <div className="flex flex-row pl-5 justify-start items-center space-x-5   border-[#ECEC04] border-2 w-[80%] h-16">
+                    <Image src={verified} className="w-7 h-7" alt="Group" />
+                    <p className="font-lato text-sm text-[#d1d1d1]">
                       Please Click Verify Button
                     </p>
                   </div>
                   <button
                     onClick={onClickToggleVerifiedModal}
-                    className="rounded-lg bg-blue-500 w-16 h-16 flex justify-center items-center"
+                    className=" border-[#ECEC04] border-2 w-16 h-16 flex justify-center items-center"
                   >
-                    <p className="font-latoBlack text-white">Verify</p>
+                    <p className="font-lato text-[#d1d1d1]">Verify</p>
                   </button>
                   {/* WaltID Verification Modal */}
 
@@ -395,9 +395,9 @@ const Profile = () => {
 
                       <button
                         onClick={issueVerifiableCredential}
-                        className="bg-blue-500 rounded-lg p-3 mt-2 flex justify-center items-center  w-full"
+                        className="bg-[#ECEC04] text-[#0A0A0A] p-3 mt-2 flex justify-center items-center  w-full"
                       >
-                        <p className="text-white font-bold text-lg ">
+                        <p className="text-[#0A0A0A] font-bold text-lg ">
                           Request WaltID Verification
                         </p>
                       </button>
@@ -411,7 +411,7 @@ const Profile = () => {
             <div>
               <p className="font-robotoBold mb-1">Group Info</p>
               <div className="flex space-x-2">
-                <div className="flex flex-row pl-5 justify-start items-center space-x-5 rounded-lg bg-[#F2F2F2] w-[80%] h-16">
+                <div className="flex flex-row pl-3 justify-start items-center space-x-3 text-[#d1d1d1] border-[#ECEC04] border-2  w-[80%] h-16">
                   <Image src={group2} className="w-11 h-11" alt="Group" />
                   {/* default - Team Buddy Guard*/}
                   <p className="font-lato text-base">
@@ -420,18 +420,18 @@ const Profile = () => {
                 </div>
                 <button
                   onClick={onClickToggleGroupInfoModal}
-                  className="rounded-lg bg-blue-500 w-16 h-16 flex justify-center items-center"
+                  className=" bg-[#ECEC04]  w-16 h-16 flex justify-center items-center"
                 >
-                  <p className="font-latoBlack text-white">EDIT</p>
+                  <p className="font-lato text-[#0A0A0A]">EDIT</p>
                 </button>
                 {/* Group Info Modal */}
 
                 {isGroupInfoModal && (
                   <Modal onClickToggleModal={onClickToggleGroupInfoModal}>
                     {/* Save button */}
-                    <div className="h-auto w-full p-2 border-2 border-[#1B75BC] rounded-lg">
+                    <div className="bg-[#0A0A0A] h-auto w-full p-2 border-2 border-[#ECEC04]  ">
                       <div className="flex flex-col">
-                        <span className="font-robotoBold mb-2">
+                        <span className="font-roboto mb-2 text-[#d1d1d1]">
                           Type Your Group Name
                         </span>
                         <input
@@ -439,9 +439,9 @@ const Profile = () => {
                           placeholder="Your Group Name"
                           value={groupInfo.groupName}
                           onChange={handleInputChange}
-                          className="font-lato p-4 border-2 border-[#1B75BC] rounded-lg mb-2"
+                          className="font-lato p-4 border-2 border-[#ECEC04]   mb-2"
                         />
-                        <span className="font-robotoBold mb-2">
+                        <span className="font-roboto text-[#d1d1d1] mb-2">
                           Group Contract Address
                         </span>
                         <input
@@ -449,52 +449,52 @@ const Profile = () => {
                           value={groupInfo.groupContractAddress}
                           onChange={handleInputChange}
                           placeholder={groupContractAddress || "0x..."}
-                          className="p-4 font-lato border-2 border-[#1B75BC] rounded-lg"
+                          className="p-4 font-lato border-2 border-[#ECEC04]  "
                         />
                         {/* POAP list */}
 
-                        <span className="font-robotoBold my-4">
+                        <span className="font-roboto my-4 text-[#d1d1d1]">
                           Choose POAP Group
                         </span>
                         <div className="flex flex-row justify-between">
                           {/* Example POAP buttons */}
                           <button
                             onClick={handlePOAPClick}
-                            className="rounded-full w-16 h-16 border-2 border-gray-400 flex justify-center items-center"
+                            className="rounded-full w-14 h-14 border-2 border-[#ECEC04] flex justify-center items-center"
                           >
                             <Image
                               src={poap1}
-                              className="w-14 h-14"
+                              className="w-12 h-12"
                               alt="poap1"
                             />
                           </button>
                           <button
                             onClick={handlePOAPClick}
-                            className="rounded-full w-16 h-16 border-2 border-gray-400 flex justify-center items-center"
+                            className="rounded-full w-14 h-14 border-2 border-[#ECEC04] flex justify-center items-center"
                           >
                             <Image
                               src={poap2}
-                              className="w-14 h-14"
+                              className="w-12 h-12"
                               alt="poap1"
                             />
                           </button>
                           <button
                             onClick={handlePOAPClick}
-                            className="rounded-full w-16 h-16 border-2 border-gray-400 flex justify-center items-center"
+                            className="rounded-full w-14 h-14 border-2 border-[#ECEC04] flex justify-center items-center"
                           >
                             <Image
                               src={poap3}
-                              className="w-14 h-14"
+                              className="w-12 h-12"
                               alt="poap1"
                             />
                           </button>
                           <button
                             onClick={handlePOAPClick}
-                            className="rounded-full w-16 h-16 border-2 border-gray-400 flex justify-center items-center"
+                            className="rounded-full w-14 h-14 border-2 border-[#ECEC04] flex justify-center items-center"
                           >
                             <Image
                               src={poap4}
-                              className="w-14 h-14"
+                              className="w-12 h-12"
                               alt="poap1"
                             />
                           </button>
@@ -502,48 +502,48 @@ const Profile = () => {
                         </div>
                         {/* NFT list */}
                         <div>
-                          <p className="font-robotoBold my-4">
+                          <p className="font-roboto text-[#d1d1d1] my-4">
                             Choose NFT Collection Group
                           </p>
                           <div className="flex flex-row justify-between">
                             {/* Example NFT buttons */}
                             <button
                               onClick={handleNFTClick}
-                              className="rounded-md w-16 h-16 border-2 border-gray-400 flex justify-center items-center"
+                              className="rounded-md w-14 h-14 border-2 border-[#ECEC04] flex justify-center items-center"
                             >
                               <Image
                                 src={nft1}
-                                className="w-14 h-14"
+                                className="w-12 h-12"
                                 alt="nft1"
                               />
                             </button>
                             <button
                               onClick={handleNFTClick}
-                              className="rounded-md w-16 h-16 border-2 border-gray-400 flex justify-center items-center"
+                              className="rounded-md w-14 h-14 border-2 border-[#ECEC04] flex justify-center items-center"
                             >
                               <Image
                                 src={nft5}
-                                className="w-14 h-14"
+                                className="w-12 h-12"
                                 alt="nft1"
                               />
                             </button>
                             <button
                               onClick={handleNFTClick}
-                              className="rounded-md w-16 h-16 border-2 border-gray-400 flex justify-center items-center"
+                              className="rounded-md w-14 h-14 border-2 border-[#ECEC04] flex justify-center items-center"
                             >
                               <Image
                                 src={nft3}
-                                className="w-14 h-14"
+                                className="w-12 h-12"
                                 alt="nft1"
                               />
                             </button>
                             <button
                               onClick={handleNFTClick}
-                              className="rounded-md w-16 h-16 border-2 border-gray-400 flex justify-center items-center"
+                              className="rounded-md w-14 h-14 border-2 border-[#ECEC04] flex justify-center items-center"
                             >
                               <Image
                                 src={nft4}
-                                className="w-14 h-14"
+                                className="w-12 h-12"
                                 alt="nft1"
                               />
                             </button>
@@ -554,9 +554,9 @@ const Profile = () => {
                     </div>
                     <button
                       onClick={saveGroupInfoToFirebase}
-                      className="bg-blue-500 rounded-lg p-3 mt-2 flex justify-center items-center  w-full"
+                      className="bg-[#ECEC04]   p-3 mt-2 flex justify-center items-center  w-full"
                     >
-                      <p className="text-white font-latoBlack  ">SAVE GROUP</p>
+                      <p className="text-[##0A0A0A] font-lato">SAVE GROUP</p>
                     </button>
                   </Modal>
                 )}
@@ -567,46 +567,46 @@ const Profile = () => {
             <div className="">
               <p className="font-robotoBold mb-1">S0S Private Info</p>
               <div className="flex space-x-2">
-                <div className="flex flex-row pl-5 justify-start items-center space-x-5 rounded-lg bg-[#F2F2F2] w-[80%] h-16">
-                  <Image src={lock} className="w-10 h-10" alt="Lock" />
-                  <p className="font-lato text-base">Encrypted Personal Info</p>
+                <div className="flex flex-row pl-5 justify-start items-center space-x-3 text-[#d1d1d1] border-[#ECEC04] border-2  w-[80%] h-16">
+                  <Image src={lock} className="w-7 h-7" alt="Lock" />
+                  <p className="font-lato text-sm">Encrypted Personal Info</p>
                 </div>
                 <button
                   onClick={onClickTogglePersonalInfoModal}
-                  className="rounded-lg w-16 h-16 flex justify-center items-center bg-blue-500"
+                  className="  w-16 h-16 flex justify-center items-center bg-[#ECEC04]"
                 >
-                  <p className="font-latoBlack text-white">ADD</p>
+                  <p className="font-lato text-[#0A0A0A]">ADD</p>
                 </button>
                 {/* Personal Information Modal */}
                 {isOpenPersonalInfoModal && (
                   <Modal onClickToggleModal={onClickTogglePersonalInfoModal}>
-                    <p className="font-bold text-lg pb-2">
-                      Type Your Personal Information for SOS
+                    <p className="font-latoBold text-md pb-2">
+                      Personal Information for SOS
                     </p>
-                    <p className="font-semibold">Your Personal Name</p>
+                    <p className="font-roboto">Your Personal Name</p>
                     <input
                       type="text"
                       placeholder="Full Name"
-                      className="p-4 my-2 border-2 border-blue-500 rounded-lg w-full"
+                      className="p-2 my-1 border-2 border-[#ECEC04]   w-full"
                     />
-                    <p className="font-semibold">SOS Contact Name</p>
+                    <p className="font-roboto">SOS Contact Name</p>
                     <input
                       type="text"
                       placeholder="SOS Contact Name"
-                      className="p-4 my-2 border-2 border-blue-500 rounded-lg  w-full"
+                      className="p-2 my-1 border-2 border-[#ECEC04]    w-full"
                     />
-                    <p className="font-semibold">SOS Contact Number</p>
+                    <p className="font-roboto">SOS Contact Number</p>
                     <input
                       type="text"
                       placeholder="SOS Contact Number"
-                      className="p-4 my-2 border-2 border-blue-500 rounded-lg  w-full"
+                      className="p-2 my-1 border-2 border-[#ECEC04]    w-full"
                     />
                     {/* Save button */}
                     <button
                       onClick={onSaveAndEncrypt}
-                      className="bg-blue-500 rounded-lg p-3 mt-2 flex justify-center items-center  w-full"
+                      className="bg-[#ECEC04]   p-2 mt-2 flex justify-center items-center  w-full"
                     >
-                      <p className="text-white font-bold text-lg ">
+                      <p className="text-[#0A0A0A] font-roboto text-md ">
                         SAVE & ENCRYPT
                       </p>
                     </button>
@@ -620,18 +620,20 @@ const Profile = () => {
                 className="flex flex-row justify-between items-center pt-4  mb-4 space-x-6
               "
               >
-                <p className="font-robotoBold mb-1">Rewards & Reputation</p>
+                <p className="font-roboto mb-1 text-[#d1d1d1]">
+                  Rewards & Reputation
+                </p>
                 <button
                   onClick={onClickToggleRewardsInfoModal}
-                  className="rounded-lg bg-blue-500 w-full h-12 flex justify-center items-center"
+                  className="  bg-[#ECEC04] w-full h-11 flex justify-center items-center"
                 >
-                  <p className="font-latoBlack text-white">CHECK RECORDS</p>
+                  <p className="font-lato text-[#0A0A0A]">CHECK RECORDS</p>
                 </button>
               </div>
               <div className="flex flex-row justify-between space-x-2 ">
                 <div className="flex space-x-2">
-                  <div className="flex flex-row pl-2  justify-between items-center space-x-5 rounded-lg bg-[#F2F2F2] w-[100%] h-16 px-2">
-                    <Image src={coin} className="w-12 h-12" alt="Coin" />
+                  <div className="flex flex-row pl-2  justify-between items-center space-x-2   border-[#ECEC04] border-2 text-[#d1d1d1] w-[100%] h-16 px-2">
+                    <Image src={coin} className="w-9 h-9 ml-3" alt="Coin" />
                     <p className="font-bold text-base text-center pr-2">
                       <span className="font-latoBlack">{rewards}</span>
                       <span className="font-lato"> BG Token</span>
@@ -639,15 +641,11 @@ const Profile = () => {
                   </div>
                 </div>
                 <div className="flex space-x-2">
-                  <div className="flex flex-row pl-2  justify-between items-center space-x-5 rounded-lg bg-[#F2F2F2] w-[100%] h-16 px-2">
-                    <Image
-                      src={reputationImg}
-                      className="w-12 h-12"
-                      alt="Coin"
-                    />
+                  <div className="flex flex-row pl-2  justify-between items-center space-x-2   border-[#ECEC04] border-2 text-[#d1d1d1] w-[100%] h-16 px-2">
+                    <Image src={reputationImg} className="w-9 h-9" alt="Coin" />
                     <p className="font-bold text-base pr-4 text-center ">
                       <span className="font-latoBlack">{reputation}</span>{" "}
-                      <span className="font-latoBlak text-red-500">High</span>
+                      <span className="font-latoBlak text-[#d1d1d1]">High</span>
                     </p>
                   </div>
                 </div>

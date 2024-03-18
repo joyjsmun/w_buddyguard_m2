@@ -2,12 +2,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import TapNFC from "@/components/TapNFC";
-import {
-  LogoImage,
-  digitalnomad,
-  safety,
-  trust,
-} from "../public/assets/images";
+import { digitalnomad, safety, trust } from "../public/assets/images";
 
 import { ConnectWallet, useAddress } from "@thirdweb-dev/react";
 
@@ -31,15 +26,15 @@ const OnBoarding = () => {
     {
       id: "2",
       image: trust,
-      title: "Based on Trustable Group Network",
+      title: "Trustable Network",
       subtitle: "We organize events for you based on your trust group",
     },
     {
       id: "3",
       image: digitalnomad,
-      title: "Big Increase in Digital Nomads",
+      title: "Digital Nomads",
       subtitle:
-        "There has been a significant increase in the number of digital nomads worldwide since the COVID-19 era",
+        "Significant increase of Digital nomads worldwide since the COVID-19 era",
     },
   ];
 
@@ -71,19 +66,22 @@ const OnBoarding = () => {
   };
 
   return (
-    <div className="bg-[#F6D268] min-h-screen flex flex-col justify-center items-center pb-4">
-      <div className="flex flex-col items-center space-y-2 ">
-        <Image
-          src={slides[currentSlideIndex].image}
-          className="w-72 h-72"
-          alt={slides[currentSlideIndex].title}
-        />
-        <h1 className="text-3xl font-robotoBlack text-gray-800 text-center pt-4 px-14">
+    <div className="bg-[#0A0A0A] min-h-screen flex flex-col justify-center items-center px-5">
+      <div className="flex flex-col bg-[#ECEC04] items-center space-y-2 pt-16 pb-12 relative mb-4 ">
+        <div className="">
+          <Image
+            src={slides[currentSlideIndex].image}
+            className="w-28 h-28"
+            alt={slides[currentSlideIndex].title}
+          />
+        </div>
+        <h1 className="text-3xl font-latoBold text-[#0A0A0A] text-center pt-4 px-2">
           {slides[currentSlideIndex].title}
         </h1>
-        <p className="text-xl font-latoLight text-gray-800 pt-2 px-7 text-center">
+        <p className="text-xl font-latoLight text-[#0A0A0A] pt-2 px-10 text-center">
           {slides[currentSlideIndex].subtitle}
         </p>
+        <div className="absolute   w-6 h-6 top-0 left-3  rounded-full origin-bottom-right translate-y-3 bg-[#0A0A0A]"></div>{" "}
       </div>
       {currentSlideIndex === slides.length - 1 ? <TapNFC /> : ""}
 
@@ -101,14 +99,14 @@ const OnBoarding = () => {
       <div></div>
       <div className="flex items-center mt-8">
         <button
-          className="bg-blue-500 font-robotoMedium text-white py-2 px-6 rounded-lg mr-4"
+          className="bg-[#ECEC04]  font-lato text-md text-[#0A0A0A] py-2 px-12 mr-4"
           onClick={skip}
         >
           Skip
         </button>
         <div>
           <button
-            className="bg-blue-500 font-robotoMedium text-white py-2 px-6 rounded-lg"
+            className="bg-[#ECEC04]  font-lato text-md text-[#0A0A0A] py-2 px-4  "
             onClick={goToNextSlide}
           >
             {currentSlideIndex === slides.length - 1 ? "Get Started" : "Next"}

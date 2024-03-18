@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { Avatar1, Avatar2, LogoImage, pin2 } from "../public/assets/images";
+import {
+  Avatar1,
+  Avatar2,
+  LogoImage,
+  arrive,
+  pin2,
+} from "../public/assets/images";
 import Modal from "../components/modal";
 import Layout from "@/components/layout";
 import {
@@ -363,7 +369,7 @@ const WalkStatus = () => {
 
   return (
     <Layout>
-      <div className="bg-white min-h-screen flex flex-col mt-10">
+      <div className="bg-[#0A0A0A] min-h-screen flex flex-col mt-12">
         <div className="px-4 flex w-full flex-col space-y-2">
           {/* Top Section */}
           <div className="flex flex-col space-y-2">
@@ -380,15 +386,15 @@ const WalkStatus = () => {
               />
             </div>
           </div>
-          <div className="rounded-lg bg-gray-200 px-4 py-2 flex flex-col space-y-4">
+          <div className=" border-[#ECEC04] border-2  px-4 py-2 flex flex-col space-y-4">
             <div className="flex flex-col space-y-2">
-              <p className="font-robotoBold">Status</p>
+              <p className="font-lato text-[#d1d1d1]">Status</p>
               {/* added buddy guard will be added here */}
               {/* Display the selected buddy guard's and current avatar */}
               <div className="flex flex-row space-x-2">
                 <button className="">
                   <Image
-                    className="w-16 h-16 rounded-full relative  border-4 border-green-500 p-1  "
+                    className="w-16 h-16 rounded-full relative  border-4 border-[#ECEC04] p-1  "
                     src={Avatar2}
                     alt="current avatar"
                   />
@@ -398,7 +404,7 @@ const WalkStatus = () => {
                 {selectedBuddyGuard && (
                   <button className="">
                     <Image
-                      className="w-16 h-16 rounded-full relative border-4 border-green-500 p-1"
+                      className="w-16 h-16 rounded-full relative border-4 border-[#ECEC04] p-1"
                       src={selectedBuddyGuard.avatar}
                       alt={`Buddy Guard ${selectedBuddyGuard.id}`}
                     />
@@ -407,7 +413,7 @@ const WalkStatus = () => {
                 {isCurrentBuddyGuard.length > 0 && (
                   <button className="">
                     <Image
-                      className="w-16 h-16 rounded-full relative border-4 border-green-500 p-1"
+                      className="w-16 h-16 rounded-full relative border-4 border-[#ECEC04] p-1"
                       src={isCurrentBuddyGuard[0].avatar} // Assuming you only want to display the first buddy guard in the array
                       alt={`Buddy Guard ${isCurrentBuddyGuard[0].id}`}
                     />
@@ -415,20 +421,20 @@ const WalkStatus = () => {
                 )}
               </div>
 
-              <p className="font-latoLight">
+              <p className="font-latoLight text-[#d1d1d1]">
                 {" "}
                 Your Buddy Guard has been walking with you about 7mins
               </p>
             </div>
             <div className="flex flex-col space-y-2">
               <div className="flex flex-row justify-between">
-                <p className="font-robotoBold">Current Location</p>
+                <p className="font-lato text-[#d1d1d1]">Current Location</p>
                 {/* <p className="font-lato text-red-500">3 min left</p> */}
               </div>
-              <div className="rounded-2xl bg-gray-300 px-4 py-2 flex flex-col space-y-2">
+              <div className="bg-[#ECEC04] px-4 py-2 flex flex-col space-y-2">
                 <div className="flex flex-row items-center space-x-2">
-                  <Image src={pin2} className="w-10 h-10" alt="Pin" />
-                  <div>{infoWindowData}</div>
+                  <Image src={pin2} className="w-7 h-7" alt="Pin" />
+                  <div className="text-[#0A0A0A]">{infoWindowData}</div>
                 </div>
               </div>
             </div>
@@ -438,7 +444,7 @@ const WalkStatus = () => {
                 <p className="font-semibold">
                   We Will Send This Msg to the Buddy Guard :
                 </p>
-                <div className="bg-yellow-400 w-30 h-34 mb-3 flex justify-center space-y-2 p-3 rounded-lg">
+                <div className="bg-yellow-400 w-30 h-34 mb-3 flex justify-center space-y-2 p-3  ">
                   <p className="font-bold">
                     SOS Time: 21:34, February 21st, 2024
                   </p>
@@ -456,14 +462,14 @@ const WalkStatus = () => {
                     once they arrive
                   </p>
                 </div>
-                <button className="bg-red-500 text-white font-bold py-3 px-6 rounded-lg">
+                <button className="bg-red-500 text-white font-bold py-3 px-6  ">
                   Send SOS Message Now
                 </button>
               </Modal>
             )}
             <div className="flex justify-between">
               <div className="flex flex-col space-y-2">
-                <p className="font-robotoBold  mb-2">
+                <p className="font-lato  mb-2 text-[#d1d1d1]">
                   Add / Remove more nearby Buddy Guards
                 </p>
                 <div className="w-full flex flex-row space-x-3">
@@ -473,7 +479,7 @@ const WalkStatus = () => {
                       onClick={() => handleSelectBuddyGuard(buddyGuard)}
                     >
                       <Image
-                        className="w-16 h-16 rounded-full relative border-4 border-blue-500 p-1"
+                        className="w-16 h-16 rounded-full relative border-4 border-[#ECEC04] p-1"
                         src={buddyGuard.avatar}
                         alt={`Buddy Guard ${buddyGuard.id}`}
                       />
@@ -484,7 +490,7 @@ const WalkStatus = () => {
                 {selectedBuddyGuard && (
                   <button
                     onClick={handleAddBuddyGuard}
-                    className="bg-[#4F9171] text-white font-latoBlack py-2 w-1/3 rounded-lg"
+                    className="bg-[#ECEC04] text-[#0A0A0A] font-lato py-1 w-1/4 "
                   >
                     ADD
                   </button>
@@ -509,12 +515,12 @@ const WalkStatus = () => {
                 <div key={buddyGuard.id} className="relative py-1">
                   <button
                     onClick={() => handleRemoveBuddyGuard(buddyGuard)}
-                    className=" absolute top-4 right-10 bg-red-500 text-white font-latoBlack py-2 w-1/3 rounded-lg items-center justify-center"
+                    className=" absolute top-4 right-10 bg-[#ECEC04] text-[#0A0A0A] font-lato py-1 w-1/4   items-center justify-center"
                   >
                     REMOVE
                   </button>
                   <Image
-                    className="w-16 h-16 rounded-full relative border-4 border-green-500 p-1 "
+                    className="w-16 h-16 rounded-full relative border-4 border-[#ECEC04] p-1 "
                     src={buddyGuard.avatar}
                     alt={`Buddy Guard ${buddyGuard.id}`}
                   />
@@ -524,7 +530,7 @@ const WalkStatus = () => {
             <div className="flex justify-around items-center space-x-3">
               <button
                 onClick={() => setIsSosModal(true)}
-                className="bg-[#FF5757] text-white font-latoBlack py-2 w-full rounded-lg"
+                className="bg-[#ECEC04] text-[#0A0A0A] font-lato py-2 w-full  "
               >
                 SEND SOS
               </button>
@@ -535,7 +541,7 @@ const WalkStatus = () => {
 
                   router.push("/home");
                 }}
-                className="bg-[#4F9171] text-white font-latoBlack py-2 w-full rounded-lg"
+                className="bg-[#ECEC04] text-[#0A0A0A] font-lato py-2 w-full  "
               >
                 ARRIVED
               </button>

@@ -38,7 +38,7 @@ const getUserColor = (userId: string) => {
   };
 
   // Return the color for the given user ID, or a default color if not found
-  return colorMap[userId] || "green";
+  return colorMap[userId] || "yellow";
 };
 
 const { db: firestore } = initializeFirebaseClient();
@@ -159,7 +159,7 @@ const Map = ({
 
   return (
     <Layout>
-      <div className="">
+      <div>
         {isLoaded ? (
           <GoogleMap
             mapContainerStyle={containerStyle}
@@ -174,16 +174,16 @@ const Map = ({
                 position={currentLocation}
                 icon={{
                   path: google.maps.SymbolPath.CIRCLE,
-                  scale: 10,
-                  fillColor: "blue",
+                  scale: 12,
+                  fillColor: "#ECEC04",
                   fillOpacity: 1,
-                  strokeWeight: 0,
+                  strokeWeight: 3,
                 }}
                 label={{
                   text: "Current User",
-                  color: "Red",
+                  color: "black",
                   fontSize: "12px",
-                  fontWeight: "bold",
+                  fontWeight: "",
                 }}
                 animation={google.maps.Animation.BOUNCE}
                 onClick={() => handleMarkerClick(currentUser?.uid || "")}
@@ -238,9 +238,9 @@ const Map = ({
                       }}
                       label={{
                         text: userId.slice(0, 6),
-                        color: "Green",
+                        color: "black",
                         fontSize: "12px",
-                        fontWeight: "bold",
+                        fontWeight: "",
                       }}
                       animation={google.maps.Animation.BOUNCE}
                       onClick={() => handleMarkerClick(userId)}

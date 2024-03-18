@@ -11,10 +11,14 @@ import sss from "shamirs-secret-sharing";
 
 const TapNFC: React.FC = () => {
   const [legacySignCommand] = useState(false);
-  const [digest] = useState("0101010101010101010101010101010101010101010101010101010101010101");
+  const [digest] = useState(
+    "0101010101010101010101010101010101010101010101010101010101010101"
+  );
   const [keyNo] = useState("1");
   const [password] = useState("");
-  const [statusText, setStatusTextA] = useState("Please click on one of the buttons below.");
+  const [statusText, setStatusTextA] = useState(
+    "Please click on one of the buttons below."
+  );
   const [secretA, setSecretA] = useState("");
 
   const [name, setName] = useState("");
@@ -52,7 +56,9 @@ const TapNFC: React.FC = () => {
   // };
 
   function arr2hex(buffer: ArrayBuffer) {
-    return [...new Uint8Array(buffer)].map(x => x.toString(16).padStart(2, "0")).join("");
+    return [...new Uint8Array(buffer)]
+      .map((x) => x.toString(16).padStart(2, "0"))
+      .join("");
   }
 
   // const handleSecretSharing = () => {
@@ -68,7 +74,9 @@ const TapNFC: React.FC = () => {
   // };
 
   const executeNFC = (method: string | null) => {
-    setStatusText("Tap the tag to the back of your smartphone and hold it for a while.");
+    setStatusText(
+      "Tap the tag to the back of your smartphone and hold it for a while."
+    );
 
     const options = {
       method: method,
@@ -154,13 +162,13 @@ const TapNFC: React.FC = () => {
             Register Personal Information
           </button> */}
           {/* <Link href="./main"> */}
-            <button
-              className="p-4 bg-[#ff8200] rounded-md w-full text-white font-medium text-xl"
-              onClick={async () => await executeNFC(null)}
-              id="btn-auto"
-            >
-              Connect NFC
-            </button>
+          <button
+            className="p-4 bg-[#ECEC04] w-full font-lato text-md text-[#0A0A0A] py-[1rem] px-6"
+            onClick={async () => await executeNFC(null)}
+            id="btn-auto"
+          >
+            Connect NFC
+          </button>
           {/* </Link> */}
         </div>
       </div>
