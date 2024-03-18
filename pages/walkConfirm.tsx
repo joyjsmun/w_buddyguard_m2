@@ -121,8 +121,8 @@ const WalkConfirm = () => {
 
   return (
     <Layout>
-      <div className="bg-[#0A0A0A] min-h-screen flex flex-col items-center justify-center">
-        <div className="p-4 flex w-full flex-col space-y-2">
+      <div className="bg-[#0A0A0A] min-h-screen flex flex-col items-center justify-center mt-5">
+        <div className="p-4 flex w-full flex-col">
           {/* Top Section */}
           <div className="flex flex-col space-y-2">
             <h2 className="text-[#d1d1d1] font-lato text-sm mb-1">
@@ -151,7 +151,7 @@ const WalkConfirm = () => {
                 onClick={() => setSelectedOption("buddyGuard")}
               >
                 <Image
-                  className="w-11 h-12 rounded-full"
+                  className="w-10 h-11 rounded-full"
                   src={LogoImage}
                   alt="Buddy Guard"
                 />
@@ -175,7 +175,7 @@ const WalkConfirm = () => {
                 onClick={() => setSelectedOption("julietK")}
               >
                 <Image
-                  className="w-12 h-12 rounded-full"
+                  className="w-11 h-11 rounded-full"
                   src={Avatar1}
                   alt="Juliet K"
                 />
@@ -197,7 +197,7 @@ const WalkConfirm = () => {
                 onClick={() => setSelectedOption("jamesLee")}
               >
                 <Image
-                  className="w-12 h-12 rounded-full"
+                  className="w-11 h-11 rounded-full"
                   src={Avatar2}
                   alt="James Lee"
                 />
