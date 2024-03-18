@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import Modal from "../components/modal";
 import Map from "../pages/map";
 
-import InboxIcon from "../public/assets/images/Icons/inbox.png";
 import Image from "next/image";
 
 import Layout from "@/components/layout";
@@ -61,7 +60,7 @@ const Home = () => {
           <ConnectWallet theme={"light"} modalSize={"compact"} />
           <div className="flex flex-row space-x-1 ">
             <button
-              onClick={() => router.push("/acceptRequest")}
+              // onClick={() => router.push("/acceptRequest")}
               className="bg-[#ECEC04] w-10 h-10 rounded-full flex justify-center items-center"
             >
               <Image src={bell} className="w-5 h-5" alt="bell" />
@@ -75,7 +74,7 @@ const Home = () => {
         </div>
         <div
           className="overflow-y-auto pt-4 px-4 flex flex-col space-y-2"
-          style={{ paddingBottom: "60px" }}
+          style={{ paddingBottom: "80px" }}
         >
           <div className="flex flex-col space-y-1 mt-2">
             <h2 className="text-[#d1d1d1] font-lato text-sm mb-2">
@@ -94,8 +93,8 @@ const Home = () => {
             </h2>
             {/* hangout events */}
             <div className="flex flex-row items-center">
-              <div className="grid grid-cols-2 justify-center items-center w-full space-x-2">
-                <div className="bg-[#ECEC04] flex flex-col justify-around w-full h-44 relative pl-1">
+              <div className="grid grid-cols-2 justify-center items-center w-full space-x-1">
+                <div className="bg-[#ECEC04] flex flex-col justify-around w-[98%] h-44 relative pl-1">
                   {" "}
                   <div className="flex flex-col items-end w-full px-3">
                     <p className="text-[#121418] font-roboto text-xs mb-2">
@@ -114,7 +113,7 @@ const Home = () => {
                   <div className="absolute bottom-0 right-0 w-8 h-8 bg- transform rotate-45 origin-bottom-right translate-y-6 bg-[#0A0A0A]"></div>{" "}
                   <div className="absolute  w-5 h-5 top-0 left-3  rounded-full origin-bottom-right translate-y-3 bg-[#0A0A0A]"></div>{" "}
                 </div>
-                <div className="bg-[#ECEC04] flex flex-col justify-around w-full h-44 relative pl-1">
+                <div className="bg-[#ECEC04] flex flex-col justify-around w-[98%] h-44 relative pl-1">
                   {" "}
                   <div className="flex flex-col items-end w-full px-3">
                     <p className="text-[#121418] font-roboto text-xs mb-2">

@@ -99,7 +99,7 @@ const OnBoarding = () => {
       <div></div>
       <div className="flex items-center mt-8">
         <button
-          className="bg-[#ECEC04]  font-lato text-md text-[#0A0A0A] py-2 px-12 mr-4"
+          className="bg-[#ECEC04]  font-lato text-md text-[#0A0A0A] py-2 px-6 mr-4"
           onClick={skip}
         >
           Skip

@@ -355,17 +355,17 @@ const Profile = () => {
                   </div>
                 </Modal> */}
                 <div className="flex space-x-2">
-                  <div className="flex flex-row pl-5 justify-start items-center space-x-5   bg-[#F2F2F2] w-[80%] h-16">
+                  <div className="flex flex-row pl-5 justify-start items-center space-x-5 border-[#ECEC04] border-2 w-[80%] h-16">
                     <Image src={verified} className="w-7 h-7" alt="Group" />
-                    <p className="font-lato  text-[#d1d1d1] text-sm ">
+                    <p className="font-lato text-[#0A0A0A] text-sm ">
                       Verification is completed with WaltID
                     </p>
                   </div>
                   <button
                     disabled
-                    className="  bg-[#ECEC04] w-20 h-16 px-2 flex justify-center items-center"
+                    className=" bg-[#ECEC04] w-20 h-16 px-2 flex justify-center items-center"
                   >
-                    <p className="font-latoBlack text-white">SUCCESS</p>
+                    <p className="font-latoBlack text-[#0A0A0A]">SUCCESS</p>
                   </button>
                 </div>
               </div>

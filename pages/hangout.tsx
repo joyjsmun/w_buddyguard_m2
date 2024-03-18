@@ -88,8 +88,8 @@ const Hangout = () => {
                 {isLoading ? (
                   <p className="text-[#d1d1d1]">Loading NFT data...</p>
                 ) : nftContractAddress ? (
-                  <div className="border-[#ECEC04] border-2 flex flex-row space-x-3 px-3 py-5 relative">
-                    <div className="w-1/2 flex flex-row justify-center items-center  ">
+                  <div className="border-[#ECEC04] border-2 flex flex-row space-x-3 px-3 py-5 relative ">
+                    <div className="w-1/2 flex flex-row justify-center items-center ">
                       <MediaRenderer
                         src={nftImageUrl}
                         alt="nft image"
@@ -97,14 +97,14 @@ const Hangout = () => {
                         height={`${30}`}
                       />
                     </div>
-                    <div className="flex flex-col text-sm">
+                    <div className="flex flex-col text-sm mt-4">
                       <p className="text-[#d1d1d1]">
-                        <span className="font-lato text-[#d1d1d1] ">
+                        <span className="font-lato text-[#d1d1d1]  ">
                           NFT Contract Address :
                         </span>{" "}
                         {shortenAddress(nftContractAddress)}
                       </p>
-                      <p className="text-[#d1d1d1] text-sm">
+                      <p className="text-[#d1d1d1] text-sm mt-2">
                         <span className="font-lato text-[#d1d1d1]">
                           NFT Name :
                         </span>{" "}
@@ -170,7 +170,7 @@ const Hangout = () => {
                       onClick={() => router.push("hangoutDetail")}
                       className="mr-1"
                     >
-                      <div className="bg-[#ECEC04] flex flex-col justify-around w-full h-44 relative">
+                      <div className="bg-[#ECEC04] flex flex-col justify-around w-full h-44 relative pl-1">
                         {" "}
                         <div className="flex flex-col items-end w-full px-3">
                           <p className="text-[#121418] font-roboto text-xs mb-2">
