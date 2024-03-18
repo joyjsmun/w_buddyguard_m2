@@ -15,7 +15,7 @@ const LandingPage = () => {
   };
 
   return (
-    <div className="bg-[#0A0A0A] flex  justify-center h-screen relative p-3">
+    <div className="bg-[#0A0A0A] flex  justify-center h-screen relative p-3 border-2 border-[#ECEC04]">
       <Head>
         <title>Landing Page</title>
         <meta name="landing" />
