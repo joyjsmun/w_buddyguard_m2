@@ -212,8 +212,10 @@ const WalkConfirm = () => {
             </div>
             {/* Total and duration */}
             <div className="flex flex-col space-y-2">
-              <div className="flex justify-end items-center space-x-4">
-                <span className=" font-latotext-2xl text-[#d1d1d1]">Total</span>
+              <div className="flex justify-end items-center space-x-2">
+                <span className=" font-latotext-2xl text-[#d1d1d1]">
+                  Total -
+                </span>
                 <span className="relative">
                   <span className="text-lg font-lato text-[#d1d1d1]">
                     5000{" "}

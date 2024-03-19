@@ -5,6 +5,9 @@ export { default as Map } from "./map_example.png";
 export { default as bell } from "./Icons/bell.png";
 export { default as next } from "./Icons/next.png";
 export { default as arrive } from "./Icons/arrive.png";
+export { default as swipe } from "./Icons/swipe.png";
+export { default as complete } from "./Icons/complete.png";
+export { default as thumb } from "./Icons/thumb.png";
 
 export { default as Avatar1 } from "./avatar1.png";
 export { default as Avatar2 } from "./avatar2.png";

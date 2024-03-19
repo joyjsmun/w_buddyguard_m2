@@ -11,8 +11,10 @@ import {
   Hangout4,
   Hangout5,
   bell,
+  next,
   pin,
   pin2,
+  swipe,
 } from "@/public/assets/images";
 import { ConnectWallet, useSigner } from "@thirdweb-dev/react";
 import { ENV } from "@pushprotocol/restapi/src/lib/constants";
@@ -139,6 +141,11 @@ const Home = () => {
           <div className="flex flex-col justify-center items-center pt-8">
             <button className="bg-[#ECEC04] font-lato text-md text-[#0A0A0A] py-2 w-full flex items-center justify-center ">
               SWIPE HANGOUT
+              <Image
+                src={swipe}
+                className="w-8 h-8 ml-4 animate-pulse"
+                alt="Live"
+              />
             </button>
           </div>
         </div>

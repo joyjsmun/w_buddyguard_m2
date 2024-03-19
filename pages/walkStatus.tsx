@@ -6,6 +6,8 @@ import {
   Avatar2,
   LogoImage,
   arrive,
+  complete,
+  help,
   pin2,
 } from "../public/assets/images";
 import Modal from "../components/modal";
@@ -530,10 +532,12 @@ const WalkStatus = () => {
             <div className="flex justify-around items-center space-x-3">
               <button
                 onClick={() => setIsSosModal(true)}
-                className="bg-[#ECEC04] text-[#0A0A0A] font-lato py-2 w-full  "
+                className="bg-[#ECEC04] flex flex-row text-[#0A0A0A] justify-center items-center font-lato py-2 w-full  "
               >
                 SEND SOS
+                {/* <Image src={help} className="w-7 h-7 ml-1" alt="Complete" /> */}
               </button>
+
               <button
                 onClick={async () => {
                   await handleCompleteOrder();
@@ -541,9 +545,10 @@ const WalkStatus = () => {
 
                   router.push("/home");
                 }}
-                className="bg-[#ECEC04] text-[#0A0A0A] font-lato py-2 w-full animate-pulse "
+                className="bg-[#ECEC04] flex flex-row text-[#0A0A0A] justify-center items-center font-lato py-2 w-full animate-pulse "
               >
                 ARRIVED
+                <Image src={complete} className="w-7 h-7 ml-1" alt="Complete" />
               </button>
             </div>
           </div>

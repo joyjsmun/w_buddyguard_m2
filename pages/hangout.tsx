@@ -88,7 +88,15 @@ const Hangout = () => {
                 {isLoading ? (
                   <p className="text-[#d1d1d1]">Loading NFT data...</p>
                 ) : nftContractAddress ? (
-                  <div className="border-[#ECEC04] border-2 flex flex-row space-x-3 px-3 py-5 relative ">
+                  <div
+                    className="border-[#ECEC04] border-4 flex flex-row space-x-3 px-3 py-5 relative"
+                    onClick={() =>
+                      window.open(
+                        "https://testnets.opensea.io/assets/sepolia/0x5d417ceea6c8982d64965df86ea11bcc82f46db3/0",
+                        "_blank"
+                      )
+                    }
+                  >
                     <div className="w-1/2 flex flex-row justify-center items-center ">
                       <MediaRenderer
                         src={nftImageUrl}
@@ -113,8 +121,8 @@ const Hangout = () => {
                     </div>
                   </div>
                 ) : (
-                  <p className="text-center text-[#d1d1d1]">
-                    You do not have any NFT/POAP yet!
+                  <p className="text-center text-[#d1d1d1] border-2 border-[#ECEC04] mt-3 p-3">
+                    You Do Not have any NFT/POAP!
                   </p>
                 )}
               </div>
@@ -135,7 +143,7 @@ const Hangout = () => {
                 Your NFT/POAP can attend these
               </p>
               {isLoading ? (
-                <p className="text-gray-500">Loading NFT data...</p>
+                <p className="text-[#d1d1d1]">Loading NFT data...</p>
               ) : nftContractAddress ? (
                 <>
                   {/* list of events */}
@@ -244,9 +252,13 @@ const Hangout = () => {
                   </div>
                 </>
               ) : (
-                <div className="text-center text-gray-500 flex flex-col justify-center items-center ">
-                  <div> You Do NOT have any related event today!</div>
-                  <div>Please change your wallet account</div>
+                <div className="text-center text-[#d1d1d1] flex flex-col justify-center items-center p-3 border-2 border-[#ECEC04] mt-3">
+                  <div>
+                    {" "}
+                    You Do NOT have any related event today!
+                    <br />
+                    Please change your wallet account
+                  </div>
                 </div>
               )}
             </div>

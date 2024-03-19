@@ -24,6 +24,7 @@ import {
   nft3,
   nft4,
   nft5,
+  thumb,
 } from "../public/assets/images";
 
 import Layout from "@/components/layout";
@@ -305,7 +306,7 @@ const Profile = () => {
         <div className="pt-3 px-4 ">
           {/* Top Section */}
           <div className="">
-            <div className="flex flex-col justify-center items-center w-100 h-50 px-8 py-8 bg-[#ECEC04] relative">
+            <div className="flex flex-col justify-center items-center w-100 h-50 px-8 py-8 border-[#ECEC04] border-4 relative">
               <button
                 className="absolute top-2 right-3"
                 onClick={onClickToggleBarcodeModal}
@@ -326,14 +327,16 @@ const Profile = () => {
               </div>
               <div className="text-center">
                 <div className="flex items-center">
-                  <p className="font-robotoBold text-2xl mr-2">Vitalic J</p>
+                  <p className="font-robotoBold text-2xl mr-2 my-2 text-[#d1d1d1]">
+                    Vitalic J
+                  </p>
                   {isVerified ? (
-                    <Image src={verified} className="w-9 h-9" alt="Verified" />
+                    <Image src={verified} className="w-8 h-8" alt="Verified" />
                   ) : (
                     <div></div>
                   )}
                 </div>
-                <p className="font-lato text-base">
+                <p className="font-lato text-base text-[#d1d1d1]">
                   {isUserAddress
                     ? shortenAddressWithChecksum(isUserAddress)
                     : ""}
@@ -653,11 +656,7 @@ const Profile = () => {
                 </div>
                 <div className="flex space-x-2">
                   <div className="flex flex-row pl-2  justify-between items-center space-x-2   border-[#ECEC04] border-2 text-[#d1d1d1] w-[100%] h-16 px-2">
-                    {/* <Image
-                      src={reputationImg}
-                      className="w-9 h-9 pt-2"
-                      alt="Coin"
-                    /> */}
+                    <Image src={thumb} className="w-7 h-8" alt="Coin" />
                     <p className="font-bold text-base pr-4 text-center ">
                       <span className="font-latoBlack ">{reputation}</span>{" "}
                       <span className="font-latoBlak text-[#d1d1d1]">High</span>
