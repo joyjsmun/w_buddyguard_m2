@@ -15,31 +15,29 @@ const LandingPage = () => {
   };
 
   return (
-    <div className="bg-[#0A0A0A] flex items-center justify-center h-screen relative p-3 ">
-      <div className="border-4 border-[#ECEC04] w-full h-full flex justify-center">
-        <Head>
-          <title>Landing Page</title>
-          <meta name="landing" />
-        </Head>
-        {/* loading page start */}
-        <div className="flex flex-col items-center mt-[13rem] space-y-2 ">
-          <Image className="w-20 h-22 mb-2" src={LogoImage} alt="Logo" />
-          <h1 className="font-kodeSemi text-center text-4xl  text-[#ECEC04]">
-            Buddy Guard
-          </h1>
-          <p className="text-center text-gray-100 font-latoLight text-lg">
-            Safety Social dApp
-          </p>
-        </div>
-        <button
-          onClick={handleButtonClick}
-          className=" fixed bottom-20 w-28 h-14 border-2 border-[#ECEC04]  items-center justify-center"
-        >
-          <div className="w-24 h-10 flex flex-col ml-[0.4rem] items-center justify-center  bg-[#ECEC04] ">
-            <p className="text-[#0A0A0A] font-lato text-lg">GO</p>
-          </div>
-        </button>
+    <div className="bg-[#0A0A0A] flex  justify-center h-screen relative p-3 border-4 border-[#ECEC04]">
+      <Head>
+        <title>Landing Page</title>
+        <meta name="landing" />
+      </Head>
+      {/* loading page start */}
+      <div className="flex flex-col items-center mt-[13rem] space-y-2 ">
+        <Image className="w-20 h-22 mb-2" src={LogoImage} alt="Logo" />
+        <h1 className="font-kodeSemi text-center text-4xl  text-[#ECEC04]">
+          Buddy Guard
+        </h1>
+        <p className="text-center text-gray-100 font-latoLight text-lg">
+          Safety Social dApp
+        </p>
       </div>
+      <button
+        onClick={handleButtonClick}
+        className=" fixed bottom-20 w-28 h-14 border-2 border-[#ECEC04]  items-center justify-center"
+      >
+        <div className="w-24 h-10 flex flex-col ml-[0.4rem] items-center justify-center  bg-[#ECEC04] animate-pulse">
+          <p className="text-[#0A0A0A] font-lato text-lg">GO</p>
+        </div>
+      </button>
     </div>
   );
 };
