@@ -8,7 +8,7 @@ function Modal({
   children: any;
 }) {
   return (
-    <div className="fixed top-0 left-0 w-full px-4 h-full flex justify-center items-center bg-gray-100 bg-opacity-50">
+    <div className="fixed top-0 left-0 w-full px-4 h-full flex justify-center items-center bg-gray-100 bg-opacity-40">
       <div className="bg-[#0A0A0A] border-2 border-[#ECEC04]   w-full p-4 flex-col justify-center items-center ">
         {children}
         <div
