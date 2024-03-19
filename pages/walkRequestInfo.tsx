@@ -89,7 +89,7 @@ const WalkRequestInfo = () => {
             {/* Next Button */}
             <button
               onClick={() => router.push("walkConfirm")}
-              className="bg-[#ECEC04] px-4 py-2  w-full flex items-center justify-center text-[#121418] font-lato text-md "
+              className="bg-[#ECEC04] px-4 py-2  w-full flex items-center justify-center text-[#121418] font-lato text-md animate-pulse"
             >
               NEXT
               <Image src={next} className="w-8 h-8 ml-4" alt="Live" />

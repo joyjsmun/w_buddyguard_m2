@@ -61,12 +61,12 @@ const Home = () => {
           <div className="flex flex-row space-x-1 ">
             <button
               // onClick={() => router.push("/acceptRequest")}
-              className="bg-[#ECEC04] w-10 h-10 rounded-full flex justify-center items-center"
+              className="bg-[#ECEC04] w-10 h-10 rounded-full flex justify-center items-center "
             >
-              <Image src={bell} className="w-5 h-5" alt="bell" />
+              <Image src={bell} className="w-5 h-5 animate-pulse" alt="bell" />
             </button>
             <button onClick={handleSosRequestModal}>
-              <div className="w-10 h-10 ml-1 bg-[#ECEC04] rounded-full flex justify-center items-center">
+              <div className="w-10 h-10 ml-1 bg-[#ECEC04] rounded-full flex justify-center items-center ">
                 <span className="text-[#0A0A0A] font-latoBlack">SOS</span>
               </div>
             </button>
@@ -164,13 +164,13 @@ const Home = () => {
                 Personal Contact Number : 987-232-1829
               </p>
             </div>
-            <p className="text-[#0A0A0A] font-latoLight leading-5 text-[#d1d1d1]">
+            <p className="font-latoLight leading-5 text-[#d1d1d1]">
               Help will be on the way soon. If possible, provide any additional
               information or updates to the Buddy Guard Group once they arrive
             </p>
             <button
               onClick={() => handleSendSOSMessage(signer)}
-              className="bg-[#ECEC04] text-[#0A0A0A] font-lato py-3 px-6   mt-4 w-full"
+              className="bg-[#ECEC04] text-[#0A0A0A] font-lato py-3 px-6 mt-4 w-full animate-pulse"
             >
               Send SOS Message Now
             </button>

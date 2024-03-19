@@ -105,8 +105,8 @@ const TapNFC: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto ">
-      <div className="flex flex-col gap-6  px-5">
+    <div className="container mx-auto flex flex-col justify-center items-center ">
+      <div className="flex flex-col w-2/3 ">
         {/* <div className="flex flex-col gap-4 ">
           <div className="text-4xl ">Register Your NFC</div>
         </div> */}
@@ -163,7 +163,7 @@ const TapNFC: React.FC = () => {
           </button> */}
           {/* <Link href="./main"> */}
           <button
-            className="p-4 bg-[#ECEC04] w-full font-lato text-md text-[#0A0A0A] py-[1rem] px-6"
+            className=" py-[1rem] bg-[#ECEC04] w-full font-lato text-md text-[#0A0A0A]"
             onClick={async () => await executeNFC(null)}
             id="btn-auto"
           >

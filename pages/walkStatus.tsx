@@ -541,7 +541,7 @@ const WalkStatus = () => {
 
                   router.push("/home");
                 }}
-                className="bg-[#ECEC04] text-[#0A0A0A] font-lato py-2 w-full  "
+                className="bg-[#ECEC04] text-[#0A0A0A] font-lato py-2 w-full animate-pulse "
               >
                 ARRIVED
               </button>

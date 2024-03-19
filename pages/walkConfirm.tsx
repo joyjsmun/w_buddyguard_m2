@@ -214,7 +214,7 @@ const WalkConfirm = () => {
             <div className="flex flex-col space-y-2">
               <div className="flex justify-end items-center space-x-4">
                 <span className=" font-latotext-2xl text-[#d1d1d1]">Total</span>
-                <span>
+                <span className="relative">
                   <span className="text-lg font-lato text-[#d1d1d1]">
                     5000{" "}
                   </span>
@@ -222,14 +222,15 @@ const WalkConfirm = () => {
                     Buddy Guard Token
                   </span>
                 </span>
+                <div className="border-2 border-[#ECEC04] w-full absolute bottom-0 right-0"></div>
               </div>
-              <span className="font-lato text-[#d1d1d1] text-right ">
+              <span className="font-latoLight text-[#d1d1d1] text-right ">
                 15 mins Away to Your Destination
               </span>
             </div>
             {/* Confirm Button */}
             <button
-              className="bg-[#ECEC04] px-4 py-2  w-full flex items-center justify-center text-[#121418] font-lato  "
+              className="bg-[#ECEC04] px-4 py-2  w-full flex items-center justify-center text-[#121418] font-lato animate-pulse"
               onClick={async () => {
                 await HandleCreateOrder();
               }}

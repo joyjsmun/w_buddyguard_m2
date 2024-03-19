@@ -174,10 +174,11 @@ const Map = ({
                 position={currentLocation}
                 icon={{
                   path: google.maps.SymbolPath.CIRCLE,
-                  scale: 12,
-                  fillColor: "#ECEC04",
-                  fillOpacity: 1,
+                  scale: 11,
+                  fillColor: "orange",
+                  fillOpacity: 2,
                   strokeWeight: 3,
+                  strokeColor: "orange",
                 }}
                 label={{
                   text: "Current User",
@@ -231,10 +232,11 @@ const Map = ({
                       }}
                       icon={{
                         path: google.maps.SymbolPath.CIRCLE,
-                        scale: 10,
+                        scale: 11,
                         fillColor: getUserColor(userId),
                         fillOpacity: 1,
-                        strokeWeight: 0,
+                        strokeWeight: 3,
+                        strokeColor: "orange",
                       }}
                       label={{
                         text: userId.slice(0, 6),
