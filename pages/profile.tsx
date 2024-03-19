@@ -25,6 +25,7 @@ import {
   nft4,
   nft5,
   thumb,
+  LogoImage,
 } from "../public/assets/images";
 
 import Layout from "@/components/layout";
@@ -318,10 +319,10 @@ const Profile = () => {
                   <Image src={BarcodeImg} className="w-48 h-48" alt="Barcode" />
                 </Modal>
               )}
-              <div className="flex justify-center items-center border-4 border-[#022952] rounded-full h-24 w-24">
+              <div className="flex justify-center items-center border-2 border-[#ECEC04] rounded-full h-24 w-24">
                 <Image
-                  src={ProfileImg}
-                  className="w-20 h-20 rounded-full"
+                  src={LogoImage}
+                  className="w-14 h-17 rounded-full"
                   alt="Profile"
                 />
               </div>
