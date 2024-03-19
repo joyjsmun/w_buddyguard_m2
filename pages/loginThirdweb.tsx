@@ -59,7 +59,7 @@ export default function Login() {
   }
 
   return (
-    <div className="bg-[#F6D268] flex flex-col space-y-10 items-center justify-center h-screen relative">
+    <div className="bg-[#0A0A0A] flex flex-col space-y-10 items-center justify-center h-screen relative border-4 border-[#ECEC04]">
       <Head>
         <title>Login Page</title>
         <meta name="login" />
@@ -67,17 +67,17 @@ export default function Login() {
       {/* loading page start */}
       <div className="flex flex-col items-center justify-center space-y-2">
         <Image className="w-20 h-22 mb-2" src={LogoImage} alt="Logo" />
-        <h1 className="text-center text-3xl font-extrabold text-orange-500">
+        <h1 className="font-kodeSemi text-center text-4xl  text-[#ECEC04]">
           Buddy Guard
         </h1>
-        <p className="text-center text-base font-bold text-gray-800">
+        <p className="text-center text-gray-100 font-latoLight text-lg">
           Safety Social dApp
         </p>
       </div>
       <div>
         {address ? (
           <button
-            className="rounded-lg bg-blue-500 w-full p-4 font-bold text-white"
+            className="bg-[#ECEC04] w-full p-4 font-bold text-[#0A0A0A]"
             onClick={() => signIn()}
           >
             Join Buddy Guard Member

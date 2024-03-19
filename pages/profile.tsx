@@ -429,7 +429,7 @@ const Profile = () => {
                 {isGroupInfoModal && (
                   <Modal onClickToggleModal={onClickToggleGroupInfoModal}>
                     {/* Save button */}
-                    <div className="bg-[#0A0A0A] h-auto w-full p-2 border-2 border-[#ECEC04]  ">
+                    <div className="bg-[#0A0A0A] h-auto w-full px-2 border-2 border-[#ECEC04] py-2 ">
                       <div className="flex flex-col">
                         <span className="font-roboto mb-2 text-[#d1d1d1]">
                           Type Your Group Name
@@ -439,7 +439,7 @@ const Profile = () => {
                           placeholder="Your Group Name"
                           value={groupInfo.groupName}
                           onChange={handleInputChange}
-                          className="font-lato p-4 border-2 border-[#ECEC04]   mb-2"
+                          className="font-lato px-4 py-3  border-2 border-[#ECEC04]  mb-2"
                         />
                         <span className="font-roboto text-[#d1d1d1] mb-2">
                           Group Contract Address
@@ -449,7 +449,7 @@ const Profile = () => {
                           value={groupInfo.groupContractAddress}
                           onChange={handleInputChange}
                           placeholder={groupContractAddress || "0x..."}
-                          className="p-4 font-lato border-2 border-[#ECEC04]  "
+                          className="px-4 py-3 font-lato border-2 border-[#ECEC04]  "
                         />
                         {/* POAP list */}
 
@@ -554,9 +554,9 @@ const Profile = () => {
                     </div>
                     <button
                       onClick={saveGroupInfoToFirebase}
-                      className="bg-[#ECEC04]   p-3 mt-2 flex justify-center items-center  w-full"
+                      className="bg-[#ECEC04]   p-3 flex justify-center items-center  w-full mt-6"
                     >
-                      <p className="text-[##0A0A0A] font-lato">SAVE GROUP</p>
+                      <p className="text-[##0A0A0A] font-lato ">SAVE GROUP</p>
                     </button>
                   </Modal>
                 )}
@@ -580,33 +580,39 @@ const Profile = () => {
                 {/* Personal Information Modal */}
                 {isOpenPersonalInfoModal && (
                   <Modal onClickToggleModal={onClickTogglePersonalInfoModal}>
-                    <p className="font-latoBold text-md pb-2">
+                    <p className="font-latoBold text-md pb-2 mb-1 text-[#d1d1d1]">
                       Personal Information for SOS
                     </p>
-                    <p className="font-roboto">Your Personal Name</p>
+                    <p className="font-roboto text-[#d1d1d1]">
+                      Your Personal Name
+                    </p>
                     <input
                       type="text"
                       placeholder="Full Name"
-                      className="p-2 my-1 border-2 border-[#ECEC04]   w-full"
+                      className="p-2 my-2 border-2 border-[#ECEC04] w-full"
                     />
-                    <p className="font-roboto">SOS Contact Name</p>
+                    <p className="font-roboto text-[#d1d1d1]">
+                      SOS Contact Name
+                    </p>
                     <input
                       type="text"
                       placeholder="SOS Contact Name"
-                      className="p-2 my-1 border-2 border-[#ECEC04]    w-full"
+                      className="p-2 my-2 border-2 border-[#ECEC04]    w-full"
                     />
-                    <p className="font-roboto">SOS Contact Number</p>
+                    <p className="font-roboto text-[#d1d1d1]">
+                      SOS Contact Number
+                    </p>
                     <input
                       type="text"
                       placeholder="SOS Contact Number"
-                      className="p-2 my-1 border-2 border-[#ECEC04]    w-full"
+                      className="p-2 my-2 border-2 border-[#ECEC04]    w-full"
                     />
                     {/* Save button */}
                     <button
                       onClick={onSaveAndEncrypt}
-                      className="bg-[#ECEC04]   p-2 mt-2 flex justify-center items-center  w-full"
+                      className="bg-[#ECEC04] p-2  flex justify-center items-center mt-6  w-full"
                     >
-                      <p className="text-[#0A0A0A] font-roboto text-md ">
+                      <p className="text-[#0A0A0A] font-roboto text-md py-1 ">
                         SAVE & ENCRYPT
                       </p>
                     </button>
@@ -635,8 +641,13 @@ const Profile = () => {
                   <div className="flex flex-row pl-2  justify-between items-center space-x-2   border-[#ECEC04] border-2 text-[#d1d1d1] w-[100%] h-16 px-2">
                     <Image src={coin} className="w-9 h-9 ml-3" alt="Coin" />
                     <p className="font-bold text-base text-center pr-2">
-                      <span className="font-latoBlack">{rewards}</span>
-                      <span className="font-lato"> BG Token</span>
+                      <span className="font-latoBlack text-[#d1d1d1]">
+                        {rewards}
+                      </span>
+                      <span className="font-lato text-[#d1d1d1]">
+                        {" "}
+                        BG Token
+                      </span>
                     </p>
                   </div>
                 </div>
@@ -648,7 +659,7 @@ const Profile = () => {
                       alt="Coin"
                     /> */}
                     <p className="font-bold text-base pr-4 text-center ">
-                      <span className="font-latoBlack">{reputation}</span>{" "}
+                      <span className="font-latoBlack ">{reputation}</span>{" "}
                       <span className="font-latoBlak text-[#d1d1d1]">High</span>
                     </p>
                   </div>

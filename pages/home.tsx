@@ -145,8 +145,10 @@ const Home = () => {
 
         {isSosModalOpen && (
           <Modal onClickToggleModal={handleSosRequestModal}>
-            <h3 className="font-lato text-md pb-2">SOS Message</h3>
-            <p className="mb-3 font-lato">
+            <h3 className="font-lato text-md pb-2 text-[#d1d1d1]">
+              SOS Message
+            </h3>
+            <p className="mb-3 font-lato text-[#d1d1d1]">
               We Will Send This Msg to the Buddy Guard :
             </p>
             <div className="bg-[#ECEC04] w-30 h-34 mb-3 flex flex-col justify-center space-y-2 p-3  ">
@@ -162,7 +164,7 @@ const Home = () => {
                 Personal Contact Number : 987-232-1829
               </p>
             </div>
-            <p className="text-[#0A0A0A] font-latoLight leading-5">
+            <p className="text-[#0A0A0A] font-latoLight leading-5 text-[#d1d1d1]">
               Help will be on the way soon. If possible, provide any additional
               information or updates to the Buddy Guard Group once they arrive
             </p>
