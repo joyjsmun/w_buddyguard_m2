@@ -224,7 +224,6 @@ const WalkConfirm = () => {
                     Buddy Guard Token
                   </span>
                 </span>
-                <div className="border-2 border-[#ECEC04] w-full absolute bottom-0 right-0"></div>
               </div>
               <span className="font-latoLight text-[#d1d1d1] text-right ">
                 15 mins Away to Your Destination

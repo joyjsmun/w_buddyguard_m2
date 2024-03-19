@@ -122,7 +122,7 @@ const Hangout = () => {
                   </div>
                 ) : (
                   <p className="text-center text-[#d1d1d1] border-2 border-[#ECEC04] mt-3 p-3">
-                    You Do Not have any NFT/POAP!
+                    You Do NOT have any NFT/POAP!
                   </p>
                 )}
               </div>
